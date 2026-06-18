@@ -1,7 +1,13 @@
-import {Link, useLoaderData} from 'react-router';
-import {Image} from '@shopify/hydrogen';
+import {useLoaderData} from 'react-router';
 import {ProductItem} from '~/components/ProductItem';
+import {Section, SectionHeading} from '~/components/ui/Layout';
+import {Hero} from '~/components/marketing/Hero';
+import {FeaturedCollections} from '~/components/marketing/FeaturedCollections';
+import {WeddingStory} from '~/components/marketing/WeddingStory';
+import {BrandStory} from '~/components/marketing/BrandStory';
+import {InspirationGallery} from '~/components/marketing/InspirationGallery';
 import {buildCuratedCollectionSummaries} from '~/lib/collectionConfig';
+import {editorial, featuredCollections} from '~/lib/storeConfig';
 
 export const meta = () => {
   return [
@@ -9,7 +15,7 @@ export const meta = () => {
     {
       name: 'description',
       content:
-        'Shop sarees, kids ethnic wear, kurta sets, salwar suits, lehengas, and festive clothing from Shriyam Studio.',
+        'Handcrafted Indian ethnic wear — sarees, salwar suits, kurta sets, lehengas, and wedding pieces from Shriyam Studio.',
     },
   ];
 };
@@ -19,59 +25,78 @@ export const meta = () => {
  */
 export async function loader({context}) {
   const {products} = await context.storefront.query(HOME_QUERY);
-  const productNodes = products.nodes;
+  const nodes = products.nodes;
+  const byHandle = (handle) => nodes.find((node) => node.handle === handle);
 
-  return {
-    products: productNodes,
-    collections: buildCuratedCollectionSummaries(productNodes),
-  };
+  // "Shop by category" — curated order from storeConfig, images from the catalog.
+  const summaries = buildCuratedCollectionSummaries(nodes);
+  const featured = featuredCollections.map((entry) => {
+    const summary = summaries.find((item) => item.handle === entry.handle);
+    return {
+      handle: entry.handle,
+      title: entry.title,
+      eyebrow: entry.eyebrow,
+      count: summary?.count ?? 0,
+      image: summary?.image ?? null,
+    };
+  });
+
+  // Editorial imagery, anchored on the strongest catalog shots (storeConfig).
+  const heroImage =
+    byHandle(editorial.hero.productHandle)?.featuredImage ||
+    nodes[0]?.featuredImage ||
+    null;
+  const weddingImage =
+    byHandle(editorial.wedding.productHandle)?.featuredImage ||
+    nodes[1]?.featuredImage ||
+    null;
+
+  const newArrivals = nodes.slice(0, 8);
+  const gallery = nodes
+    .filter((node) => node.featuredImage)
+    .slice(0, 4)
+    .map((node) => ({
+      handle: node.handle,
+      title: node.title,
+      productType: node.productType,
+      image: node.featuredImage,
+    }));
+
+  return {featured, heroImage, weddingImage, newArrivals, gallery};
 }
 
 export default function Homepage() {
   /** @type {LoaderReturnData} */
-  const {products, collections} = useLoaderData();
-  const heroProduct = products[0];
-  const heroImage = heroProduct?.featuredImage;
-  const featuredProducts = products.slice(0, 8);
-  const heroCollections = collections.filter((collection) => collection.count);
+  const {featured, heroImage, weddingImage, newArrivals, gallery} = useLoaderData();
 
   return (
     <div className="home">
-      <section className="home-hero">
-        {heroImage ? (
-          <Link
-            className="home-hero-image"
-            to={`/products/${heroProduct.handle}`}
-            prefetch="intent"
-          >
-            <Image
-              alt={heroImage.altText || heroProduct.title}
-              aspectRatio="16/9"
-              data={heroImage}
-              loading="eager"
-              sizes="100vw"
-            />
-          </Link>
-        ) : null}
-        <div className="home-hero-copy">
-          <p>Festivities with loved ones</p>
-          <h1>Shriyam Studio</h1>
-          <div className="home-hero-actions">
-            <Link className="button-primary" to="/collections/all">
-              Shop now
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero
+        image={heroImage}
+        eyebrow={editorial.hero.eyebrow}
+        headline={editorial.hero.headline}
+        cta={editorial.hero.cta}
+      />
 
-      <section className="home-products" aria-labelledby="new-arrivals">
-        <div className="section-heading">
-          <p className="eyebrow">New in</p>
-          <h2 id="new-arrivals">Freshly added pieces</h2>
-          <Link to="/collections/all">View all</Link>
-        </div>
+      {/* Shop by category */}
+      <Section size="default">
+        <SectionHeading
+          eyebrow="The Edit"
+          title="Shop by category"
+          link={{to: '/collections', label: 'All collections'}}
+        />
+        <FeaturedCollections collections={featured} />
+      </Section>
+
+      {/* New arrivals */}
+      <Section size="default">
+        <SectionHeading
+          eyebrow="New In"
+          title="Freshly added pieces"
+          link={{to: '/collections/all', label: 'View all'}}
+        />
         <div className="products-grid">
-          {featuredProducts.map((product, index) => (
+          {newArrivals.map((product, index) => (
             <ProductItem
               key={product.id}
               product={product}
@@ -79,39 +104,29 @@ export default function Homepage() {
             />
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="home-collections" aria-labelledby="shop-by-edit">
-        <div className="section-heading">
-          <p className="eyebrow">Shop by category</p>
-          <h2 id="shop-by-edit">Sarees, clothing, kids, and occasion wear</h2>
-        </div>
-        <div className="collection-teaser-grid">
-          {heroCollections.map((collection) => (
-            <Link
-              className="collection-teaser"
-              key={collection.handle}
-              to={`/collections/${collection.handle}`}
-              prefetch="intent"
-            >
-              {collection.image ? (
-                <Image
-                  alt={collection.image.altText || collection.title}
-                  aspectRatio="4/5"
-                  data={collection.image}
-                  loading="lazy"
-                  sizes="(min-width: 64em) 25vw, (min-width: 45em) 50vw, 100vw"
-                />
-              ) : null}
-              <span className="collection-teaser-copy">
-                <span>{collection.eyebrow}</span>
-                <strong>{collection.title}</strong>
-                <small>{collection.count} styles</small>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* Wedding storytelling */}
+      <WeddingStory
+        image={weddingImage}
+        eyebrow={editorial.wedding.eyebrow}
+        headline={editorial.wedding.headline}
+        body={editorial.wedding.body}
+        cta={editorial.wedding.cta}
+      />
+
+      {/* Brand story */}
+      <BrandStory
+        eyebrow="Our Story"
+        statement="Every Shriyam Studio piece is made to order and crafted by hand — soft drapes, considered embroidery, and colour chosen for the people you celebrate with."
+        cta={{label: 'Discover the studio', href: '/collections/all'}}
+      />
+
+      {/* Inspiration gallery */}
+      <Section size="default">
+        <SectionHeading eyebrow="Inspiration" title="Styled for the occasion" />
+        <InspirationGallery items={gallery} />
+      </Section>
     </div>
   );
 }
@@ -147,7 +162,7 @@ const HOME_QUERY = `#graphql
   ${PRODUCT_CARD_FRAGMENT}
   query HomeProducts($country: CountryCode, $language: LanguageCode)
     @inContext(country: $country, language: $language) {
-    products(first: 24, sortKey: UPDATED_AT, reverse: true) {
+    products(first: 50, sortKey: UPDATED_AT, reverse: true) {
       nodes {
         ...HomeProductCard
       }

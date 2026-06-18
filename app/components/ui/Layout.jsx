@@ -3,6 +3,7 @@
  * Thin wrappers over the design-system classes in app.css so pages compose from
  * named building blocks instead of repeating class strings.
  */
+import {Link} from 'react-router';
 
 function cx(...parts) {
   return parts.filter(Boolean).join(' ');
@@ -65,9 +66,9 @@ export function SectionHeading({eyebrow, title, link, children}) {
         {children}
       </div>
       {link ? (
-        <a className="section-heading__link" href={link.to}>
+        <Link className="section-heading__link" to={link.to} prefetch="intent">
           {link.label}
-        </a>
+        </Link>
       ) : null}
     </div>
   );
