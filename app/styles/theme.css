@@ -17,7 +17,9 @@
   --color-surface: #faf8f5;
   --color-surface-raised: #ffffff;
   --color-surface-soft: #f1ece4;
-  --color-surface-dark: #15120e;
+  /* Brand teal (from the logo) — the site's signature dark surface. */
+  --color-surface-dark: #143a34;
+  --color-surface-dark-raised: #1c4a42;
   --color-ink: #111111;
   --color-ink-muted: #666666;
   --color-ink-faint: #9b948a;

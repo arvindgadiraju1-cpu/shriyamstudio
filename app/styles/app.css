@@ -457,7 +457,8 @@ main[data-hero] {
   justify-content: center;
   height: var(--announcement-height);
   padding: 0 1rem;
-  background: var(--color-ink);
+  /* Brand teal band — ties the top of the chrome to the logo. */
+  background: var(--color-surface-dark);
   color: var(--color-on-dark);
   font-size: 0.7rem;
   font-weight: 400;
@@ -516,10 +517,15 @@ main[data-hero] {
 .site-brand {
   grid-column: 2;
   justify-self: center;
+  /* inline-block so text-indent applies and offsets the trailing tracking. */
+  display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 2.4vw, 1.9rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  /* Wide tracked caps — echoes the engraved feel of the logo wordmark. */
+  letter-spacing: 0.2em;
+  /* Optical: tracking pushes the word right; nudge it back to true center. */
+  text-indent: 0.2em;
   line-height: 1;
   text-transform: uppercase;
   color: var(--chrome-fg);

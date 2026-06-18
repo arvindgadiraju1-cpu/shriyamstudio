@@ -25,8 +25,12 @@ export const color = {
   surfaceRaised: '#FFFFFF',
   /** Image mats / tiles — a hair deeper than surface so framed photos sit calmly. */
   surfaceSoft: '#F1ECE4',
-  /** Deep contrast surface for footer / editorial inverse sections. */
-  surfaceDark: '#15120E',
+  /** Deep contrast surface for footer / editorial inverse sections.
+   *  This is the BRAND TEAL drawn from the Shriyam Studio logo — peacock teal
+   *  paired with gold + ivory. Used wherever the page goes dark. */
+  surfaceDark: '#143A34',
+  /** Slightly lifted teal for layered elements on a dark surface (hovers, tiles). */
+  surfaceDarkRaised: '#1C4A42',
 
   /** Primary text. */
   ink: '#111111',

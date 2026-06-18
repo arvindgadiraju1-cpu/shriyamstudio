@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /tmp/shriyam-assets && echo \"scratch dir ready\")",
+      "Bash(rm -rf rog)",
+      "Bash(mkdir -p rog)",
+      "Bash(qlmanage -t -s 1200 -o rog og-source.svg)",
+      "Bash(sips -g pixelWidth -g pixelHeight rog/og-source.svg.png)",
+      "Bash(echo \"square render: $\\(sips -g pixelWidth -g pixelHeight rog/og-source.svg.png)",
+      "Bash(rm -rf r128)",
+      "Bash(mkdir -p r128)",
+      "Bash(qlmanage -t -s 128 -o r128 favicon.svg)",
+      "Bash(sips -g pixelWidth -g pixelHeight r128/favicon.svg.png)",
+      "Bash(echo \"favicon.svg @128: $\\(sips -g pixelWidth -g pixelHeight r128/favicon.svg.png)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

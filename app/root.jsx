@@ -65,7 +65,12 @@ export function links() {
       crossOrigin: 'anonymous',
     },
     {rel: 'stylesheet', href: fontStylesheetHref},
+    // Favicons + install assets. SVG monogram first (modern browsers prefer it),
+    // PNG fallback for legacy, apple-touch for iOS home screen, PWA manifest.
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png'},
+    {rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'},
+    {rel: 'manifest', href: '/site.webmanifest'},
   ];
 }
 
@@ -84,6 +89,8 @@ export async function loader(args) {
   return {
     ...deferredData,
     ...criticalData,
+    // Absolute origin for building social-share image URLs (og:image must be absolute).
+    origin: new URL(args.request.url).origin,
     publicStoreDomain: env.PUBLIC_STORE_DOMAIN,
     shop: getShopAnalytics({
       storefront,
@@ -155,12 +162,24 @@ function loadDeferredData({context}) {
  */
 export function Layout({children}) {
   const nonce = useNonce();
+  const rootData = useRouteLoaderData('root');
+  const ogImage = `${rootData?.origin ?? ''}/og-image.png`;
 
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        {/* Brand-teal browser/OS chrome + premium social-share card (per-page
+            <title> still comes from each route's meta via <Meta/>). */}
+        <meta name="theme-color" content="#143A34" />
+        <meta property="og:site_name" content="Shriyam Studio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={ogImage} />
         <link rel="stylesheet" href={tailwindCss}></link>
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
