@@ -1,13 +1,11 @@
 import {useLoaderData} from 'react-router';
-import {getPaginationVariables} from '@shopify/hydrogen';
-import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
-import {ProductItem} from '~/components/ProductItem';
+import {ProductGrid} from '~/components/ProductGrid';
 
 /**
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Hydrogen | Products`}];
+  return [{title: `Shriyam Studio | All Products`}];
 };
 
 /**
@@ -30,14 +28,9 @@ export async function loader(args) {
  */
 async function loadCriticalData({context, request}) {
   const {storefront} = context;
-  const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
-  });
 
   const [{products}] = await Promise.all([
-    storefront.query(CATALOG_QUERY, {
-      variables: {...paginationVariables},
-    }),
+    storefront.query(CATALOG_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
   return {products};
@@ -59,19 +52,15 @@ export default function Collection() {
 
   return (
     <div className="collection">
-      <h1>Products</h1>
-      <PaginatedResourceSection
-        connection={products}
-        resourcesClassName="products-grid"
-      >
-        {({node: product, index}) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        )}
-      </PaginatedResourceSection>
+      <section className="collection-hero compact">
+        <p className="eyebrow">Complete catalog</p>
+        <h1 id="all-products-heading">All Products</h1>
+        <p>
+          Browse every saree, kids outfit, kurta set, salwar suit, and festive
+          piece currently available from Shriyam Studio.
+        </p>
+      </section>
+      <ProductGrid headingId="all-products-heading" products={products.nodes} />
     </div>
   );
 }
@@ -85,6 +74,10 @@ const COLLECTION_ITEM_FRAGMENT = `#graphql
     id
     handle
     title
+    description
+    availableForSale
+    productType
+    tags
     featuredImage {
       id
       altText
@@ -100,6 +93,15 @@ const COLLECTION_ITEM_FRAGMENT = `#graphql
         ...MoneyCollectionItem
       }
     }
+    images(first: 6) {
+      nodes {
+        id
+        altText
+        url
+        width
+        height
+      }
+    }
   }
 `;
 
@@ -108,20 +110,10 @@ const CATALOG_QUERY = `#graphql
   query Catalog(
     $country: CountryCode
     $language: LanguageCode
-    $first: Int
-    $last: Int
-    $startCursor: String
-    $endCursor: String
   ) @inContext(country: $country, language: $language) {
-    products(first: $first, last: $last, before: $startCursor, after: $endCursor) {
+    products(first: 100, sortKey: UPDATED_AT, reverse: true) {
       nodes {
         ...CollectionItem
-      }
-      pageInfo {
-        hasPreviousPage
-        hasNextPage
-        startCursor
-        endCursor
       }
     }
   }

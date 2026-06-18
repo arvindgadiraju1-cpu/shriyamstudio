@@ -11,10 +11,11 @@ import {
 } from 'react-router';
 import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
+import {fontStylesheetHref} from '~/design-system/typography';
 import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
 import tailwindCss from './styles/tailwind.css?url';
-import {PageLayout} from './components/PageLayout';
+import {PageLayout} from './components/layout/PageLayout';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -55,6 +56,15 @@ export function links() {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
+    // Fonts — preconnect + a single non-blocking stylesheet (display=swap).
+    // Playfair Display (display) + Inter (body). See design-system/typography.ts.
+    {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossOrigin: 'anonymous',
+    },
+    {rel: 'stylesheet', href: fontStylesheetHref},
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
   ];
 }

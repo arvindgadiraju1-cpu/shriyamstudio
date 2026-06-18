@@ -20,7 +20,7 @@ export function PaginatedResourceSection({
 
         return (
           <div>
-            <PreviousLink>
+            <PreviousLink className="pagination-link pagination-link-previous">
               {isLoading ? (
                 'Loading...'
               ) : (
@@ -40,7 +40,7 @@ export function PaginatedResourceSection({
             ) : (
               resourcesMarkup
             )}
-            <NextLink>
+            <NextLink className="pagination-link pagination-link-next">
               {isLoading ? (
                 'Loading...'
               ) : (

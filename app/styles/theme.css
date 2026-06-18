@@ -1,0 +1,104 @@
+/**
+ * Shriyam Studio — CSS token bridge
+ * =============================================================================
+ * This is the CSS MIRROR of the TypeScript design system:
+ *   - app/design-system/tokens.ts      (color, spacing, radius, shadow, z, …)
+ *   - app/design-system/typography.ts  (fontFamily)
+ *   - app/design-system/motion.ts      (duration, easing)
+ *
+ * Tailwind v4 `@theme` turns these into :root custom properties AND generates
+ * utilities (e.g. `--color-surface` → `bg-surface`/`text-surface`). app.css and
+ * every component read these via `var(--*)`. Keep this in sync with the TS source.
+ * =============================================================================
+ */
+
+@theme {
+  /* ---- Color · mirror of tokens.ts `color` ------------------------------- */
+  --color-surface: #faf8f5;
+  --color-surface-raised: #ffffff;
+  --color-surface-soft: #f1ece4;
+  --color-surface-dark: #15120e;
+  --color-ink: #111111;
+  --color-ink-muted: #666666;
+  --color-ink-faint: #9b948a;
+  --color-on-dark: #faf8f5;
+  --color-accent: #8b6b3e;
+  --color-gold: #c8a96b;
+  --color-line: #ece7df;
+  --color-line-strong: #ded5c6;
+
+  /* ---- Fonts · mirror of typography.ts `fontFamily` ---------------------- */
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---- Radius · mirror of tokens.ts `radius` ----------------------------- */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Breakpoints · mirror of tokens.ts `breakpoint` -------------------- */
+  --breakpoint-sm: 40em;
+  --breakpoint-md: 48em;
+  --breakpoint-lg: 64em;
+  --breakpoint-xl: 90em;
+
+  /* ---- Easings · mirror of motion.ts `easing` ---------------------------- */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/**
+ * Non-utility custom properties. Still global (:root), consumed via var() in
+ * app.css and components, but intentionally NOT exposed as Tailwind utilities.
+ */
+:root {
+  /* Scrim over hero imagery + faint warm wash to harmonize photo white balance */
+  --scrim: rgba(17, 15, 12, 0.34);
+  --image-wash: rgba(250, 248, 245, 0.06);
+
+  /* Spacing rhythm · mirror of tokens.ts sectionSpace + gutter */
+  --section-space: clamp(4.5rem, 9vw, 9rem);
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+
+  /* Containers · mirror of tokens.ts `container` */
+  --container-max: 1600px;
+  --container-wide: 1280px;
+  --container-narrow: 1040px;
+  --container-text: 46rem;
+
+  /* Tracking · mirror of tokens.ts `tracking` */
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.12em;
+  --tracking-eyebrow: 0.22em;
+
+  /* Shadow · mirror of tokens.ts `shadow` */
+  --shadow-soft: 0 1px 2px rgba(17, 17, 17, 0.04);
+  --shadow-card: 0 18px 40px -24px rgba(17, 15, 12, 0.22);
+  --shadow-overlay: 0 40px 90px -30px rgba(17, 15, 12, 0.45);
+
+  /* Z-index · mirror of tokens.ts `z` */
+  --z-raised: 10;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-aside: 210;
+  --z-modal: 300;
+
+  /* Motion durations · mirror of motion.ts `duration` */
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-slow: 560ms;
+  --duration-image: 760ms;
+
+  /* Layout chrome heights (shared by header + hero viewport math) */
+  --announcement-height: 40px;
+  --header-height: 88px;
+}
+
+@media (min-width: 64em) {
+  :root {
+    --header-height: 104px;
+  }
+}

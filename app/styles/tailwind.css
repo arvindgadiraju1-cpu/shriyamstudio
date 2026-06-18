@@ -1,6 +1,7 @@
 /**
- * Configure Tailwind v4 in this file using CSS variables and directives:
- * https://tailwindcss.com/docs/v4-beta#css-first-configuration
+ * Tailwind v4 entry. The design tokens live in ./theme.css (the CSS mirror of
+ * app/design-system/*.ts) and are imported here so Tailwind generates utilities
+ * from them and exposes every token as a :root custom property.
  */
-
 @import 'tailwindcss';
+@import './theme.css';

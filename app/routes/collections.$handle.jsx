@@ -3,102 +3,129 @@ import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {ProductItem} from '~/components/ProductItem';
+import {
+  getCuratedCollection,
+  productMatchesCollection,
+} from '~/lib/collectionConfig';
 
-/**
- * @type {Route.MetaFunction}
- */
 export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  return [
+    {
+      title: data?.collection
+        ? `Shriyam Studio | ${data.collection.title}`
+        : 'Shriyam Studio | Collection',
+    },
+  ];
 };
 
 /**
  * @param {Route.LoaderArgs} args
  */
 export async function loader(args) {
-  // Start fetching non-critical data without blocking time to first byte
-  const deferredData = loadDeferredData(args);
-
-  // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
-
-  return {...deferredData, ...criticalData};
+  return criticalData;
 }
 
 /**
- * Load data necessary for rendering content above the fold. This is the critical data
- * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  * @param {Route.LoaderArgs}
  */
 async function loadCriticalData({context, params, request}) {
   const {handle} = params;
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
+    pageBy: 12,
   });
 
   if (!handle) {
     throw redirect('/collections');
   }
 
-  const [{collection}] = await Promise.all([
+  const curatedCollection = getCuratedCollection(handle);
+  const [{collection}, {products}] = await Promise.all([
     storefront.query(COLLECTION_QUERY, {
       variables: {handle, ...paginationVariables},
-      // Add other queries here, so that they are loaded in parallel
     }),
+    curatedCollection
+      ? storefront.query(CURATED_PRODUCTS_QUERY)
+      : Promise.resolve({products: {nodes: []}}),
   ]);
 
-  if (!collection) {
+  if (collection) {
+    redirectIfHandleIsLocalized(request, {handle, data: collection});
+
+    return {
+      collection,
+      curatedProducts: null,
+      isCurated: false,
+    };
+  }
+
+  if (!curatedCollection) {
     throw new Response(`Collection ${handle} not found`, {
       status: 404,
     });
   }
 
-  // The API handle might be localized, so redirect to the localized handle
-  redirectIfHandleIsLocalized(request, {handle, data: collection});
-
   return {
-    collection,
+    collection: {
+      ...curatedCollection,
+      products: null,
+    },
+    curatedProducts: products.nodes.filter((product) =>
+      productMatchesCollection(product, curatedCollection),
+    ),
+    isCurated: true,
   };
-}
-
-/**
- * Load data for rendering content below the fold. This data is deferred and will be
- * fetched after the initial page load. If it's unavailable, the page should still 200.
- * Make sure to not throw any errors here, as it will cause the page to 500.
- * @param {Route.LoaderArgs}
- */
-function loadDeferredData({context}) {
-  return {};
 }
 
 export default function Collection() {
   /** @type {LoaderReturnData} */
-  const {collection} = useLoaderData();
+  const {collection, curatedProducts, isCurated} = useLoaderData();
+  const products = isCurated ? curatedProducts : collection.products.nodes;
 
   return (
     <div className="collection">
-      <h1>{collection.title}</h1>
-      <p className="collection-description">{collection.description}</p>
-      <PaginatedResourceSection
-        connection={collection.products}
-        resourcesClassName="products-grid"
-      >
-        {({node: product, index}) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        )}
-      </PaginatedResourceSection>
-      <Analytics.CollectionView
-        data={{
-          collection: {
-            id: collection.id,
-            handle: collection.handle,
-          },
-        }}
-      />
+      <section className="collection-hero compact">
+        {collection.eyebrow ? <p className="eyebrow">{collection.eyebrow}</p> : null}
+        <h1>{collection.title}</h1>
+        {collection.description ? <p>{collection.description}</p> : null}
+      </section>
+
+      {isCurated ? (
+        <div className="products-grid">
+          {products.map((product, index) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+              loading={index < 8 ? 'eager' : undefined}
+            />
+          ))}
+        </div>
+      ) : (
+        <PaginatedResourceSection
+          connection={collection.products}
+          resourcesClassName="products-grid"
+        >
+          {({node: product, index}) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+              loading={index < 8 ? 'eager' : undefined}
+            />
+          )}
+        </PaginatedResourceSection>
+      )}
+
+      {!isCurated ? (
+        <Analytics.CollectionView
+          data={{
+            collection: {
+              id: collection.id,
+              handle: collection.handle,
+            },
+          }}
+        />
+      ) : null}
     </div>
   );
 }
@@ -112,6 +139,8 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     id
     handle
     title
+    productType
+    tags
     featuredImage {
       id
       altText
@@ -130,7 +159,6 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
   }
 `;
 
-// NOTE: https://shopify.dev/docs/api/storefront/2022-04/objects/collection
 const COLLECTION_QUERY = `#graphql
   ${PRODUCT_ITEM_FRAGMENT}
   query Collection(
@@ -159,14 +187,25 @@ const COLLECTION_QUERY = `#graphql
         pageInfo {
           hasPreviousPage
           hasNextPage
-          endCursor
           startCursor
+          endCursor
         }
       }
     }
   }
 `;
 
+const CURATED_PRODUCTS_QUERY = `#graphql
+  ${PRODUCT_ITEM_FRAGMENT}
+  query CuratedCollectionProducts($country: CountryCode, $language: LanguageCode)
+    @inContext(country: $country, language: $language) {
+    products(first: 100, sortKey: UPDATED_AT, reverse: true) {
+      nodes {
+        ...ProductItem
+      }
+    }
+  }
+`;
+
 /** @typedef {import('./+types/collections.$handle').Route} Route */
-/** @typedef {import('storefrontapi.generated').ProductItemFragment} ProductItemFragment */
 /** @typedef {ReturnType<typeof useLoaderData<typeof loader>>} LoaderReturnData */
