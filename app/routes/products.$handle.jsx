@@ -8,9 +8,11 @@ import {
   useSelectedOptionInUrlParam,
 } from '@shopify/hydrogen';
 import {ProductPrice} from '~/components/ProductPrice';
-import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
+import {ProductMediaGallery} from '~/components/ProductMediaGallery';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import {WomensSizeChart} from '~/components/WomensSizeChart';
+import {KidsSizeChart} from '~/components/KidsSizeChart';
 
 /**
  * @type {Route.MetaFunction}
@@ -103,11 +105,16 @@ export default function Product() {
     selectedOrFirstAvailableVariant: selectedVariant,
   });
 
-  const {title, descriptionHtml} = product;
+  const {title, descriptionHtml, tags} = product;
+  const isWomens = tags?.some((t) => t === 'audience:women');
+  const isKids = tags?.some((t) => t === 'audience:kids');
 
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      <ProductMediaGallery
+        media={product.media?.nodes ?? []}
+        selectedImage={selectedVariant?.image}
+      />
       <div className="product-main">
         <h1>{title}</h1>
         <ProductPrice
@@ -127,6 +134,8 @@ export default function Product() {
         <br />
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
         <br />
+        {isWomens && <WomensSizeChart />}
+        {isKids && <KidsSizeChart />}
       </div>
       <Analytics.ProductView
         data={{
@@ -184,7 +193,28 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
   }
 `;
 
+const PRODUCT_MEDIA_FRAGMENT = `#graphql
+  fragment ProductMedia on Product {
+    media(first: 12) {
+      nodes {
+        __typename
+        mediaContentType
+        ... on Video {
+          id
+          sources { url mimeType format height width }
+          previewImage { url altText width height }
+        }
+        ... on MediaImage {
+          id
+          image { url altText width height }
+        }
+      }
+    }
+  }
+`;
+
 const PRODUCT_FRAGMENT = `#graphql
+  ${PRODUCT_MEDIA_FRAGMENT}
   fragment Product on Product {
     id
     title
@@ -192,6 +222,8 @@ const PRODUCT_FRAGMENT = `#graphql
     handle
     descriptionHtml
     description
+    tags
+    ...ProductMedia
     encodedVariantExistence
     encodedVariantAvailability
     options {

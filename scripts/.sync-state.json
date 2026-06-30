@@ -1,0 +1,833 @@
+{
+  "products": {
+    "Women/Dresses /women-dress-beige-striped-polka-dot-cotton": {
+      "shopifyId": "gid://shopify/Product/9162376347811",
+      "handle": "beige-striped-polka-dot-cotton-dress",
+      "title": "Beige Striped Polka Dot Cotton Dress",
+      "collectionId": 335371436195,
+      "fileHashes": {
+        "women-dress-beige-striped-polka-dot-cotton-1.heic": "2481924-1782830543280",
+        "women-dress-beige-striped-polka-dot-cotton-1.mov": "5132711-1782830543280"
+      }
+    },
+    "Women/Dresses /women-dress-mustard-yellow-gathered-maxi": {
+      "shopifyId": "gid://shopify/Product/9162376413347",
+      "handle": "mustard-yellow-gathered-maxi-dress",
+      "title": "Mustard Yellow Gathered Maxi Dress",
+      "collectionId": 335371436195,
+      "fileHashes": {
+        "women-dress-mustard-yellow-gathered-maxi-1.heic": "2743506-1782830543280",
+        "women-dress-mustard-yellow-gathered-maxi-1.mov": "17739153-1782830543280",
+        "women-dress-mustard-yellow-gathered-maxi-2.mov": "14987855-1782830543280"
+      }
+    },
+    "Women/Dresses /women-dress-white-floral-embroidered-maxi": {
+      "shopifyId": "gid://shopify/Product/9162376511651",
+      "handle": "white-floral-embroidered-maxi-dress",
+      "title": "White Floral Embroidered Maxi Dress",
+      "collectionId": 335371436195,
+      "fileHashes": {
+        "women-dress-white-floral-embroidered-maxi-1.heic": "1926321-1782830543280",
+        "women-dress-white-floral-embroidered-maxi-1.mov": "11164954-1782830543280"
+      }
+    },
+    "Women/Dresses /women-dress-white-hand-embroidered-anarkali-red-tassel": {
+      "shopifyId": "gid://shopify/Product/9162376675491",
+      "handle": "white-hand-embroidered-anarkali-red-tassel-dress",
+      "title": "White Hand Embroidered Anarkali Red Tassel Dress",
+      "collectionId": 335371436195,
+      "fileHashes": {
+        "women-dress-white-hand-embroidered-anarkali-red-tassel-1.jpg": "359062-1782845384629.6924"
+      }
+    },
+    "Women/Dresses /women-dress-yellow-tiered-puff-sleeve-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162376708259",
+      "handle": "yellow-tiered-puff-sleeve-embroidered-dress",
+      "title": "Yellow Tiered Puff Sleeve Embroidered Dress",
+      "collectionId": 335371436195,
+      "fileHashes": {
+        "women-dress-yellow-tiered-puff-sleeve-embroidered-1.jpg": "7142091-1782830543280"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-olive-green-mustard-gold-buti": {
+      "shopifyId": "gid://shopify/Product/9162376839331",
+      "handle": "olive-green-mustard-gold-buti-kurta-set",
+      "title": "Olive Green Mustard Gold Buti Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-olive-green-mustard-gold-buti-1.heic": "5388970-1782830556030",
+        "women-kurta-set-olive-green-mustard-gold-buti-1.mov": "5784460-1782830556036",
+        "women-kurta-set-olive-green-mustard-gold-buti-2.mov": "12613991-1782830556174"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-pink-gold-buti-anarkali": {
+      "shopifyId": "gid://shopify/Product/9162376970403",
+      "handle": "pink-gold-buti-anarkali-kurta-set",
+      "title": "Pink Gold Buti Anarkali Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-pink-gold-buti-anarkali-1.heic": "3862757-1782830556033",
+        "women-kurta-set-pink-gold-buti-anarkali-1.mov": "10824653-1782830556031"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-pink-orange-plaid": {
+      "shopifyId": "gid://shopify/Product/9162377035939",
+      "handle": "pink-orange-plaid-kurta-set",
+      "title": "Pink Orange Plaid Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-pink-orange-plaid-1.heic": "2253982-1782830556174"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-pink-stripe-block-print": {
+      "shopifyId": "gid://shopify/Product/9162377167011",
+      "handle": "pink-stripe-block-print-kurta-set",
+      "title": "Pink Stripe Block Print Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-pink-stripe-block-print-1.heic": "4263620-1782830556031",
+        "women-kurta-set-pink-stripe-block-print-1.mov": "5843218-1782830556034"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-teal-floral-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162377265315",
+      "handle": "teal-floral-embroidered-kurta-set",
+      "title": "Teal Floral Embroidered Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-teal-floral-embroidered-1.heic": "2482302-1782830556035",
+        "women-kurta-set-teal-floral-embroidered-1.mov": "14343885-1782830556034",
+        "women-kurta-set-teal-floral-embroidered-2.jpg": "649449-1782830556030"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-white-gold-polka-dot": {
+      "shopifyId": "gid://shopify/Product/9162377396387",
+      "handle": "white-gold-polka-dot-kurta-set",
+      "title": "White Gold Polka Dot Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-white-gold-polka-dot-1.heic": "5071015-1782830556031",
+        "women-kurta-set-white-gold-polka-dot-1.mov": "4024675-1782830556033",
+        "women-kurta-set-white-gold-polka-dot-2.heic": "5002875-1782830556030"
+      }
+    },
+    "Women/Kurta sets/women-kurta-set-wine-mirror-embroidery-anarkali": {
+      "shopifyId": "gid://shopify/Product/9162377527459",
+      "handle": "wine-mirror-embroidery-anarkali-kurta-set",
+      "title": "Wine Mirror Embroidery Anarkali Kurta Set",
+      "collectionId": 335371468963,
+      "fileHashes": {
+        "women-kurta-set-wine-mirror-embroidery-anarkali-1.heic": "2284372-1782830556030",
+        "women-kurta-set-wine-mirror-embroidery-anarkali-1.mov": "12350660-1782830556034",
+        "women-kurta-set-wine-mirror-embroidery-anarkali-2.heic": "3439435-1782830556035"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-brown-kasuti-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162377756835",
+      "handle": "brown-kasuti-embroidered-suit-set",
+      "title": "Brown Kasuti Embroidered Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-brown-kasuti-embroidered-1.heic": "8734785-1782830571933",
+        "women-unstitched-suit-brown-kasuti-embroidered-1.mov": "7798300-1782830571933"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-cream-block-print-maroon-dupatta": {
+      "shopifyId": "gid://shopify/Product/9162377855139",
+      "handle": "cream-block-print-maroon-dupatta-suit-set",
+      "title": "Cream Block Print Maroon Dupatta Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-cream-block-print-maroon-dupatta-1.heic": "7043705-1782830605178",
+        "women-unstitched-suit-cream-block-print-maroon-dupatta-2.heic": "8936015-1782830605159",
+        "women-unstitched-suit-cream-block-print-maroon-dupatta-3.heic": "6494791-1782830605173"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-cream-floral-block-print": {
+      "shopifyId": "gid://shopify/Product/9162378051747",
+      "handle": "cream-floral-block-print-suit-set",
+      "title": "Cream Floral Block Print Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-cream-floral-block-print-1.heic": "5531354-1782830587989"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-cream-green-crossstitch-floral": {
+      "shopifyId": "gid://shopify/Product/9162378150051",
+      "handle": "cream-green-crossstitch-floral-suit-set",
+      "title": "Cream Green Crossstitch Floral Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-cream-green-crossstitch-floral-1.heic": "1482848-1782830605167",
+        "women-unstitched-suit-cream-green-crossstitch-floral-1.mov": "7338398-1782830605198",
+        "women-unstitched-suit-cream-green-crossstitch-floral-2.heic": "1538518-1782830605168"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-indigo-ikat-geometric": {
+      "shopifyId": "gid://shopify/Product/9162378248355",
+      "handle": "indigo-ikat-geometric-suit-set",
+      "title": "Indigo Ikat Geometric Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-indigo-ikat-geometric-1.heic": "9047853-1782830587982"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-lavender-buti-cotton": {
+      "shopifyId": "gid://shopify/Product/9162378313891",
+      "handle": "lavender-buti-cotton-suit-set",
+      "title": "Lavender Buti Cotton Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-lavender-buti-cotton-1.heic": "8769268-1782830571933",
+        "women-unstitched-suit-lavender-buti-cotton-2.heic": "9092523-1782830571927"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-lavender-hand-painted-floral": {
+      "shopifyId": "gid://shopify/Product/9162378412195",
+      "handle": "lavender-hand-painted-floral-suit-set",
+      "title": "Lavender Hand Painted Floral Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-lavender-hand-painted-floral-1.heic": "5459623-1782830587988",
+        "women-unstitched-suit-lavender-hand-painted-floral-1.mov": "1410103-1782830587989",
+        "women-unstitched-suit-lavender-hand-painted-floral-2.heic": "5013744-1782830587982"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-lavender-ombre-chikankari": {
+      "shopifyId": "gid://shopify/Product/9162378870947",
+      "handle": "lavender-ombre-chikankari-suit-set",
+      "title": "Lavender Ombre Chikankari Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-lavender-ombre-chikankari-1.heic": "6200540-1782830605166",
+        "women-unstitched-suit-lavender-ombre-chikankari-1.mov": "15675299-1782830605160",
+        "women-unstitched-suit-lavender-ombre-chikankari-2.mov": "10031972-1782830605165"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-lilac-mauve-digital-print": {
+      "shopifyId": "gid://shopify/Product/9162378969251",
+      "handle": "lilac-mauve-digital-print-suit-set",
+      "title": "Lilac Mauve Digital Print Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-lilac-mauve-digital-print-1.heic": "1636159-1782830605159",
+        "women-unstitched-suit-lilac-mauve-digital-print-1.mov": "19931181-1782830605168"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-maroon-jamdani-peacock": {
+      "shopifyId": "gid://shopify/Product/9162379067555",
+      "handle": "maroon-jamdani-peacock-suit-set",
+      "title": "Maroon Jamdani Peacock Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-maroon-jamdani-peacock-1.heic": "10627734-1782830571689"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-mint-green-floral-print": {
+      "shopifyId": "gid://shopify/Product/9162379133091",
+      "handle": "mint-green-floral-print-suit-set",
+      "title": "Mint Green Floral Print Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-mint-green-floral-print-1.heic": "4742666-1782830605165"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-mustard-organza-floral-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162379231395",
+      "handle": "mustard-organza-floral-embroidered-suit-set",
+      "title": "Mustard Organza Floral Embroidered Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-mustard-organza-floral-embroidered-1.heic": "3982678-1782830588055"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-navy-tribal-geometric": {
+      "shopifyId": "gid://shopify/Product/9162379329699",
+      "handle": "navy-tribal-geometric-suit-set",
+      "title": "Navy Tribal Geometric Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-navy-tribal-geometric-1.heic": "8967994-1782830571936",
+        "women-unstitched-suit-navy-tribal-geometric-1.mov": "6305707-1782830571931",
+        "women-unstitched-suit-navy-tribal-geometric-2.heic": "3857676-1782830571927"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-olive-green-butterfly-buti": {
+      "shopifyId": "gid://shopify/Product/9162379428003",
+      "handle": "olive-green-butterfly-buti-suit-set",
+      "title": "Olive Green Butterfly Buti Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-olive-green-butterfly-buti-1.heic": "12273786-1782830587983"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-olive-green-stripe-pompom": {
+      "shopifyId": "gid://shopify/Product/9162379493539",
+      "handle": "olive-green-stripe-pompom-suit-set",
+      "title": "Olive Green Stripe Pompom Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-olive-green-stripe-pompom-1.heic": "8101392-1782830588051",
+        "women-unstitched-suit-olive-green-stripe-pompom-2.heic": "5081084-1782830588055"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-orange-banarasi-silk": {
+      "shopifyId": "gid://shopify/Product/9162379624611",
+      "handle": "orange-banarasi-silk-suit-set",
+      "title": "Orange Banarasi Silk Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-orange-banarasi-silk-1.heic": "2504663-1782830587984",
+        "women-unstitched-suit-orange-banarasi-silk-2.heic": "2470755-1782830587982"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-orange-bird-applique": {
+      "shopifyId": "gid://shopify/Product/9162379853987",
+      "handle": "orange-bird-applique-suit-set",
+      "title": "Orange Bird Applique Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-orange-bird-applique-1.heic": "8705759-1782830571935",
+        "women-unstitched-suit-orange-bird-applique-1.mov": "9612296-1782830571936"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-orange-peacock-applique": {
+      "shopifyId": "gid://shopify/Product/9162379952291",
+      "handle": "orange-peacock-applique-suit-set",
+      "title": "Orange Peacock Applique Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-orange-peacock-applique-1.heic": "4985343-1782830571689",
+        "women-unstitched-suit-orange-peacock-applique-1.mov": "24113414-1782830571686"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-orange-sheer-organza": {
+      "shopifyId": "gid://shopify/Product/9162380017827",
+      "handle": "orange-sheer-organza-suit-set",
+      "title": "Orange Sheer Organza Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-orange-sheer-organza-1.heic": "2439857-1782830604897",
+        "women-unstitched-suit-orange-sheer-organza-1.mov": "9030675-1782830604896"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-orange-stripe-pompom": {
+      "shopifyId": "gid://shopify/Product/9162380083363",
+      "handle": "orange-stripe-pompom-suit-set",
+      "title": "Orange Stripe Pompom Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-orange-stripe-pompom-1.heic": "5915450-1782830588054"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-peach-gota-pearl-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162380247203",
+      "handle": "peach-gota-pearl-embroidered-suit-set",
+      "title": "Peach Gota Pearl Embroidered Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-peach-gota-pearl-embroidered-1.heic": "5815266-1782830571928"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-peach-lavender-ombre-chikankari": {
+      "shopifyId": "gid://shopify/Product/9162380312739",
+      "handle": "peach-lavender-ombre-chikankari-suit-set",
+      "title": "Peach Lavender Ombre Chikankari Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-peach-lavender-ombre-chikankari-1.heic": "6972152-1782830605165",
+        "women-unstitched-suit-peach-lavender-ombre-chikankari-2.heic": "5423513-1782830605175"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-peach-ombre-chikankari": {
+      "shopifyId": "gid://shopify/Product/9162380411043",
+      "handle": "peach-ombre-chikankari-suit-set",
+      "title": "Peach Ombre Chikankari Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-peach-ombre-chikankari-1.heic": "4503964-1782830605167",
+        "women-unstitched-suit-peach-ombre-chikankari-1.mov": "8875878-1782830605159",
+        "women-unstitched-suit-peach-ombre-chikankari-2.mov": "10829763-1782830605159"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-peach-peacock-applique": {
+      "shopifyId": "gid://shopify/Product/9162380476579",
+      "handle": "peach-peacock-applique-suit-set",
+      "title": "Peach Peacock Applique Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-peach-peacock-applique-1.heic": "7069054-1782830587982"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-pink-floral-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162380607651",
+      "handle": "pink-floral-embroidered-suit-set",
+      "title": "Pink Floral Embroidered Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-pink-floral-embroidered-1.heic": "6140234-1782830587986",
+        "women-unstitched-suit-pink-floral-embroidered-2.heic": "6285233-1782830587983"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-pink-gota-pearl-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162380804259",
+      "handle": "pink-gota-pearl-embroidered-suit-set",
+      "title": "Pink Gota Pearl Embroidered Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-pink-gota-pearl-embroidered-1.heic": "6100318-1782830571689",
+        "women-unstitched-suit-pink-gota-pearl-embroidered-1.mov": "21246521-1782830571687"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-pink-jamdani-floral": {
+      "shopifyId": "gid://shopify/Product/9162380869795",
+      "handle": "pink-jamdani-floral-suit-set",
+      "title": "Pink Jamdani Floral Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-pink-jamdani-floral-1.heic": "4713580-1782830587987",
+        "women-unstitched-suit-pink-jamdani-floral-2.heic": "5340695-1782830587987"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-pink-rose-applique": {
+      "shopifyId": "gid://shopify/Product/9162381197475",
+      "handle": "pink-rose-applique-suit-set",
+      "title": "Pink Rose Applique Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-pink-rose-applique-1.heic": "8532317-1782830571935",
+        "women-unstitched-suit-pink-rose-applique-1.mov": "9992034-1782830571934"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-rani-pink-buti-multicolor-dupatta": {
+      "shopifyId": "gid://shopify/Product/9162381295779",
+      "handle": "rani-pink-buti-multicolor-dupatta-suit-set",
+      "title": "Rani Pink Buti Multicolor Dupatta Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-rani-pink-buti-multicolor-dupatta-1.heic": "4706529-1782830587986"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-teal-bird-jamdani": {
+      "shopifyId": "gid://shopify/Product/9162381426851",
+      "handle": "teal-bird-jamdani-suit-set",
+      "title": "Teal Bird Jamdani Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-teal-bird-jamdani-1.heic": "6875003-1782830588051",
+        "women-unstitched-suit-teal-bird-jamdani-1.mov": "15979288-1782830587987"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-teal-gold-stripe-jamdani": {
+      "shopifyId": "gid://shopify/Product/9162381590691",
+      "handle": "teal-gold-stripe-jamdani-suit-set",
+      "title": "Teal Gold Stripe Jamdani Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-teal-gold-stripe-jamdani-1.heic": "9335867-1782830571928",
+        "women-unstitched-suit-teal-gold-stripe-jamdani-1.mov": "17389082-1782830571932"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-white-blue-block-print-cotton": {
+      "shopifyId": "gid://shopify/Product/9162381721763",
+      "handle": "white-blue-block-print-cotton-suit-set",
+      "title": "White Blue Block Print Cotton Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-white-blue-block-print-cotton-1.heic": "1874890-1782830604897",
+        "women-unstitched-suit-white-blue-block-print-cotton-1.mov": "33718160-1782830604896",
+        "women-unstitched-suit-white-blue-block-print-cotton-2.mov": "21511160-1782830605160"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-white-pink-yellow-block-print": {
+      "shopifyId": "gid://shopify/Product/9162381787299",
+      "handle": "white-pink-yellow-block-print-suit-set",
+      "title": "White Pink Yellow Block Print Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-white-pink-yellow-block-print-1.heic": "1790558-1782830605163",
+        "women-unstitched-suit-white-pink-yellow-block-print-1.mov": "23632229-1782830605198"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-white-red-block-print": {
+      "shopifyId": "gid://shopify/Product/9162381885603",
+      "handle": "white-red-block-print-suit-set",
+      "title": "White Red Block Print Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-white-red-block-print-1.jpg": "528556-1782830605163"
+      }
+    },
+    "Women/Unstitched suit sets/women-unstitched-suit-yellow-bird-floral-applique": {
+      "shopifyId": "gid://shopify/Product/9162381951139",
+      "handle": "yellow-bird-floral-applique-suit-set",
+      "title": "Yellow Bird Floral Applique Suit Set",
+      "collectionId": 335371501731,
+      "fileHashes": {
+        "women-unstitched-suit-yellow-bird-floral-applique-1.heic": "7512348-1782830571935",
+        "women-unstitched-suit-yellow-bird-floral-applique-2.heic": "6836503-1782830571929"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-blue-elephant-print": {
+      "shopifyId": "gid://shopify/Product/9162382114979",
+      "handle": "blue-elephant-print-kurta-set",
+      "title": "Blue Elephant Print Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-blue-elephant-print-1.heic": "5536179-1782830621499"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-brown-linen": {
+      "shopifyId": "gid://shopify/Product/9162382213283",
+      "handle": "brown-linen-kurta-set",
+      "title": "Brown Linen Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-brown-linen-1.jpg": "6529012-1782830621503"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-cream-stripe": {
+      "shopifyId": "gid://shopify/Product/9162382344355",
+      "handle": "cream-stripe-kurta-set",
+      "title": "Cream Stripe Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-cream-stripe-1.heic": "5510404-1782830621503"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-lavender-mirror-embroidered": {
+      "shopifyId": "gid://shopify/Product/9162382442659",
+      "handle": "lavender-mirror-embroidered-kurta-set",
+      "title": "Lavender Mirror Embroidered Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-lavender-mirror-embroidered-1.heic": "4238185-1782830621495",
+        "kids-boys-kurta-set-lavender-mirror-embroidered-1.mov": "20224066-1782830621496",
+        "kids-boys-kurta-set-lavender-mirror-embroidered-2.heic": "5585458-1782830621207.2263"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-mustard-short-sleeve": {
+      "shopifyId": "gid://shopify/Product/9162382639267",
+      "handle": "mustard-short-sleeve-kurta-set",
+      "title": "Mustard Short Sleeve Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-mustard-short-sleeve-1.jpg": "6570842-1782830621499"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-purple-brocade-nehru-jacket": {
+      "shopifyId": "gid://shopify/Product/9162382770339",
+      "handle": "purple-brocade-nehru-jacket-kurta-set",
+      "title": "Purple Brocade Nehru Jacket Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-purple-brocade-nehru-jacket-1.heic": "721298-1782830621501",
+        "kids-boys-kurta-set-purple-brocade-nehru-jacket-1.mov": "4044004-1782830621501"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-purple-nehru-waistcoat-white": {
+      "shopifyId": "gid://shopify/Product/9162382868643",
+      "handle": "purple-nehru-waistcoat-white-kurta-set",
+      "title": "Purple Nehru Waistcoat White Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-purple-nehru-waistcoat-white-1.jpg": "5644722-1782830621495"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-red-gold-buti": {
+      "shopifyId": "gid://shopify/Product/9162382934179",
+      "handle": "red-gold-buti-kurta-set",
+      "title": "Red Gold Buti Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-red-gold-buti-1.heic": "3596481-1782830621503",
+        "kids-boys-kurta-set-red-gold-buti-2.heic": "3452944-1782830621502"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-teal-gold-buti-dhoti-set": {
+      "shopifyId": "gid://shopify/Product/9162383065251",
+      "handle": "teal-gold-buti-dhoti-set-kurta-set",
+      "title": "Teal Gold Buti Dhoti Set Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-teal-gold-buti-dhoti-set-1.heic": "5342653-1782830621502"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-teal-gold-buti-long-sleeve": {
+      "shopifyId": "gid://shopify/Product/9162383196323",
+      "handle": "teal-gold-buti-long-sleeve-kurta-set",
+      "title": "Teal Gold Buti Long Sleeve Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-teal-gold-buti-long-sleeve-1.heic": "5090694-1782830621495"
+      }
+    },
+    "Kids/Boys clothing /kids-boys-kurta-set-wine-buti": {
+      "shopifyId": "gid://shopify/Product/9162383294627",
+      "handle": "wine-buti-kurta-set",
+      "title": "Wine Buti Kurta Set",
+      "collectionId": 335371534499,
+      "fileHashes": {
+        "kids-boys-kurta-set-wine-buti-1.heic": "4387611-1782830621502",
+        "kids-boys-kurta-set-wine-buti-1.mov": "17665671-1782830621496"
+      }
+    },
+    "Kids/Girls clothing /kids-collection-lifestyle-rack": {
+      "shopifyId": "gid://shopify/Product/9162383327395",
+      "handle": "lifestyle-rack-kids-girls-clothing",
+      "title": "Lifestyle Rack Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-collection-lifestyle-rack-1.jpg": "493114-1782845384062.9685"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-collection-lifestyle-rack": {
+      "shopifyId": "gid://shopify/Product/9162383524003",
+      "handle": "kids-girls-collection-lifestyle-rack-kids-girls-clothing",
+      "title": "Kids Girls Collection Lifestyle Rack Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-collection-lifestyle-rack-1.heic": "1282617-1782830641008",
+        "kids-girls-collection-lifestyle-rack-2.heic": "3852565-1782830640981"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-beige-floral-pompom-sundress": {
+      "shopifyId": "gid://shopify/Product/9162383753379",
+      "handle": "beige-floral-pompom-sundress-kids-girls-clothing",
+      "title": "Beige Floral Pompom Sundress Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-beige-floral-pompom-sundress-1.heic": "4086320-1782830640970",
+        "kids-girls-dress-beige-floral-pompom-sundress-2.heic": "5116340-1782830641007"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-blue-gingham-checked-bow": {
+      "shopifyId": "gid://shopify/Product/9162383884451",
+      "handle": "blue-gingham-checked-bow-kids-girls-clothing",
+      "title": "Blue Gingham Checked Bow Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-blue-gingham-checked-bow-1.heic": "3779305-1782830640970",
+        "kids-girls-dress-blue-gingham-checked-bow-2.heic": "2358133-1782830640977"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-blue-peter-pan-collar-eyelet": {
+      "shopifyId": "gid://shopify/Product/9162384048291",
+      "handle": "blue-peter-pan-collar-eyelet-kids-girls-clothing",
+      "title": "Blue Peter Pan Collar Eyelet Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-blue-peter-pan-collar-eyelet-1.jpg": "379794-1782845384247.981"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-brown-peter-pan-collar-lace": {
+      "shopifyId": "gid://shopify/Product/9162384146595",
+      "handle": "brown-peter-pan-collar-lace-kids-girls-clothing",
+      "title": "Brown Peter Pan Collar Lace Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-brown-peter-pan-collar-lace-1.heic": "754729-1782830640987",
+        "kids-girls-dress-brown-peter-pan-collar-lace-1.mov": "3092734-1782830641008"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-crimson-flutter-sleeve": {
+      "shopifyId": "gid://shopify/Product/9162384277667",
+      "handle": "crimson-flutter-sleeve-kids-girls-clothing",
+      "title": "Crimson Flutter Sleeve Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-crimson-flutter-sleeve-1.jpg": "382988-1782845382295.1648"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-green-floral-tiered-bow": {
+      "shopifyId": "gid://shopify/Product/9162384441507",
+      "handle": "green-floral-tiered-bow-kids-girls-clothing",
+      "title": "Green Floral Tiered Bow Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-green-floral-tiered-bow-1.heic": "1967534-1782830640971",
+        "kids-girls-dress-green-floral-tiered-bow-2.heic": "2926527-1782830640976",
+        "kids-girls-dress-green-floral-tiered-bow-3.jpg": "403284-1782845384432.813"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-lime-green-buti": {
+      "shopifyId": "gid://shopify/Product/9162384572579",
+      "handle": "lime-green-buti-kids-girls-clothing",
+      "title": "Lime Green Buti Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-lime-green-buti-1.jpg": "377329-1782845381932.5916"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-magenta-tiered-elephant-border": {
+      "shopifyId": "gid://shopify/Product/9162384703651",
+      "handle": "magenta-tiered-elephant-border-kids-girls-clothing",
+      "title": "Magenta Tiered Elephant Border Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-magenta-tiered-elephant-border-1.heic": "6520623-1782830640692",
+        "kids-girls-dress-magenta-tiered-elephant-border-2.heic": "4331823-1782830640694",
+        "kids-girls-dress-magenta-tiered-elephant-border-3.heic": "2997828-1782830641009",
+        "kids-girls-dress-magenta-tiered-elephant-border-4.jpg": "424660-1782845382542.2263"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-multicolor-plaid-ruffle": {
+      "shopifyId": "gid://shopify/Product/9162384867491",
+      "handle": "multicolor-plaid-ruffle-kids-girls-clothing",
+      "title": "Multicolor Plaid Ruffle Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-multicolor-plaid-ruffle-1.jpg": "467116-1782845383646.493",
+        "kids-girls-dress-multicolor-plaid-ruffle-2.jpg": "465039-1782845383272.8125"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-navy-strap-silver-border": {
+      "shopifyId": "gid://shopify/Product/9162384965795",
+      "handle": "navy-strap-silver-border-kids-girls-clothing",
+      "title": "Navy Strap Silver Border Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-navy-strap-silver-border-1.heic": "5321607-1782830640974",
+        "kids-girls-dress-navy-strap-silver-border-2.jpg": "403340-1782845383848.034"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-pink-bow-ruffle": {
+      "shopifyId": "gid://shopify/Product/9162385195171",
+      "handle": "pink-bow-ruffle-kids-girls-clothing",
+      "title": "Pink Bow Ruffle Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-pink-bow-ruffle-1.heic": "604367-1782830640974",
+        "kids-girls-dress-pink-bow-ruffle-1.mov": "22296258-1782830640984",
+        "kids-girls-dress-pink-bow-ruffle-2.mov": "8778082-1782830641007"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-pink-floral-tiered": {
+      "shopifyId": "gid://shopify/Product/9162385293475",
+      "handle": "pink-floral-tiered-kids-girls-clothing",
+      "title": "Pink Floral Tiered Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-pink-floral-tiered-1.heic": "957607-1782830640975",
+        "kids-girls-dress-pink-floral-tiered-1.mov": "1756308-1782830640970"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-rainbow-tiered-patchwork": {
+      "shopifyId": "gid://shopify/Product/9162385424547",
+      "handle": "rainbow-tiered-patchwork-kids-girls-clothing",
+      "title": "Rainbow Tiered Patchwork Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-rainbow-tiered-patchwork-1.jpg": "409595-1782845383456.3994"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-set-pink-mirror-buti-blouse-shorts": {
+      "shopifyId": "gid://shopify/Product/9162385522851",
+      "handle": "pink-mirror-buti-blouse-shorts-kids-girls-clothing",
+      "title": "Pink Mirror Buti Blouse Shorts Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-set-pink-mirror-buti-blouse-shorts-1.heic": "5058155-1782830641010"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-white-ruffle-gold-star": {
+      "shopifyId": "gid://shopify/Product/9162385621155",
+      "handle": "white-ruffle-gold-star-kids-girls-clothing",
+      "title": "White Ruffle Gold Star Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-white-ruffle-gold-star-1.jpg": "4524414-1782830655668"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-yellow-seersucker-embroidered-collar": {
+      "shopifyId": "gid://shopify/Product/9162385719459",
+      "handle": "yellow-seersucker-embroidered-collar-kids-girls-clothing",
+      "title": "Yellow Seersucker Embroidered Collar Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-yellow-seersucker-embroidered-collar-1.heic": "847631-1782830640970",
+        "kids-girls-dress-yellow-seersucker-embroidered-collar-1.mov": "7784973-1782830640977"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-dress-yellow-smocked-peter-pan-collar": {
+      "shopifyId": "gid://shopify/Product/9162385850531",
+      "handle": "yellow-smocked-peter-pan-collar-kids-girls-clothing",
+      "title": "Yellow Smocked Peter Pan Collar Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-dress-yellow-smocked-peter-pan-collar-1.heic": "820474-1782830640971",
+        "kids-girls-dress-yellow-smocked-peter-pan-collar-1.mov": "10745413-1782830640975"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-green-mustard-pavadai": {
+      "shopifyId": "gid://shopify/Product/9162385948835",
+      "handle": "green-mustard-pavadai-kids-girls-clothing",
+      "title": "Green Mustard Pavadai Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-green-mustard-pavadai-1.jpg": "528286-1782845383089.208"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-ivory-crop-top-skirt": {
+      "shopifyId": "gid://shopify/Product/9162386014371",
+      "handle": "ivory-crop-top-skirt-kids-girls-clothing",
+      "title": "Ivory Crop Top Skirt Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-ivory-crop-top-skirt-1.heic": "3454605-1782830640976",
+        "kids-girls-lehenga-ivory-crop-top-skirt-1.mov": "2258893-1782830640973",
+        "kids-girls-lehenga-ivory-crop-top-skirt-2.mov": "1927622-1782830640970"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-lavender-gold-border-pavadai": {
+      "shopifyId": "gid://shopify/Product/9162386079907",
+      "handle": "lavender-gold-border-pavadai-kids-girls-clothing",
+      "title": "Lavender Gold Border Pavadai Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-lavender-gold-border-pavadai-1.jpg": "7893874-1782830655664",
+        "kids-girls-lehenga-lavender-gold-border-pavadai-2.jpg": "6412593-1782830655671"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-pink-ruffle-top-tutu-skirt": {
+      "shopifyId": "gid://shopify/Product/9162386178211",
+      "handle": "pink-ruffle-top-tutu-skirt-kids-girls-clothing",
+      "title": "Pink Ruffle Top Tutu Skirt Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-pink-ruffle-top-tutu-skirt-1.jpg": "409042-1782845382901.4922"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-pink-unicorn-embroidered-tulle": {
+      "shopifyId": "gid://shopify/Product/9162386276515",
+      "handle": "pink-unicorn-embroidered-tulle-kids-girls-clothing",
+      "title": "Pink Unicorn Embroidered Tulle Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-pink-unicorn-embroidered-tulle-1.jpg": "5210957-1782830655437"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-purple-lace-up-choli": {
+      "shopifyId": "gid://shopify/Product/9162386374819",
+      "handle": "purple-lace-up-choli-kids-girls-clothing",
+      "title": "Purple Lace Up Choli Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-purple-lace-up-choli-1.heic": "6013596-1782830640691",
+        "kids-girls-lehenga-purple-lace-up-choli-2.heic": "6363642-1782830640691"
+      }
+    },
+    "Kids/Girls clothing /kids-girls-lehenga-teal-multicolor-border": {
+      "shopifyId": "gid://shopify/Product/9162386473123",
+      "handle": "teal-multicolor-border-kids-girls-clothing",
+      "title": "Teal Multicolor Border Kids Girls Clothing",
+      "collectionId": 335371567267,
+      "fileHashes": {
+        "kids-girls-lehenga-teal-multicolor-border-1.jpg": "478802-1782845382724.5967",
+        "kids-girls-lehenga-teal-multicolor-border-2.jpg": "472824-1782845382109.9333"
+      }
+    }
+  },
+  "collections": {},
+  "lastSync": "2026-06-30T18:58:58.111Z"
+}

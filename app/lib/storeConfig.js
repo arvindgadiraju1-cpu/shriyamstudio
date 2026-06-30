@@ -31,46 +31,37 @@ export const announcement =
  * `feature` is a typographic call-out tile inside the panel (no image needed).
  */
 export const navigation = [
-  {label: 'Sarees', href: '/collections/sarees'},
   {
-    label: 'Women',
-    href: '/collections/womens-ethnic',
+    label: "Women's",
+    href: '/collections/womens',
     columns: [
       {
-        heading: 'Shop Women',
+        heading: "Women's Collections",
         links: [
-          {label: 'All Women’s Ethnic', href: '/collections/womens-ethnic'},
-          {label: 'Sarees', href: '/collections/sarees'},
-          {label: 'Salwar Suits', href: '/collections/salwar-suits'},
-        ],
-      },
-      {
-        heading: 'Occasion',
-        links: [
-          {label: 'Wedding Collection', href: '/collections/wedding-collection'},
-          {label: 'Festive & Everyday', href: '/collections/all'},
+          {label: "All Women's", href: '/collections/womens'},
+          {label: 'Dresses', href: '/collections/women-dresses'},
+          {label: 'Kurta Sets', href: '/collections/women-kurta-sets'},
+          {label: 'Unstitched Suit Sets', href: '/collections/women-unstitched-suits'},
         ],
       },
     ],
-    feature: {eyebrow: 'The Edit', title: 'Wedding Collection', href: '/collections/wedding-collection'},
+    feature: {eyebrow: 'Festive 2026', title: "Women's Ethnic Collection", href: '/collections/womens'},
   },
   {
     label: 'Kids',
-    href: '/collections/kids-ethnic',
+    href: '/collections/kids',
     columns: [
       {
-        heading: 'Shop Kids',
+        heading: 'Kids Collections',
         links: [
-          {label: 'All Kids Ethnic', href: '/collections/kids-ethnic'},
-          {label: 'Kurta Sets', href: '/collections/kurta-sets'},
-          {label: 'Lehengas & Dresses', href: '/collections/lehengas-dresses'},
+          {label: 'All Kids', href: '/collections/kids'},
+          {label: 'Girls Clothing', href: '/collections/kids-girls'},
+          {label: 'Boys Clothing', href: '/collections/kids-boys'},
         ],
       },
     ],
-    feature: {eyebrow: 'Little Ones', title: 'Celebration Dressing', href: '/collections/kids-ethnic'},
+    feature: {eyebrow: 'Little Celebrations', title: 'Kids Ethnic Wear', href: '/collections/kids'},
   },
-  {label: 'Men', href: '/collections/mens-ethnic'},
-  {label: 'Wedding', href: '/collections/wedding-collection'},
 ];
 
 /**
@@ -78,10 +69,10 @@ export const navigation = [
  * Order matters — this is the curated sequence shoppers see first.
  */
 export const featuredCollections = [
-  {handle: 'sarees', title: 'Sarees', eyebrow: 'Signature drapes'},
-  {handle: 'kids-ethnic', title: 'Kids Ethnic', eyebrow: 'Little celebration wear'},
-  {handle: 'salwar-suits', title: 'Salwar Suits', eyebrow: 'Elegant occasion sets'},
-  {handle: 'lehengas-dresses', title: 'Lehengas & Dresses', eyebrow: 'Dress-up moments'},
+  {handle: 'womens', title: "All Women's", eyebrow: 'Festive & everyday'},
+  {handle: 'women-dresses', title: 'Dresses', eyebrow: 'Effortless silhouettes'},
+  {handle: 'women-kurta-sets', title: 'Kurta Sets', eyebrow: 'Polished festive sets'},
+  {handle: 'kids-girls', title: 'Girls Clothing', eyebrow: 'Little celebration wear'},
 ];
 
 /**
@@ -92,18 +83,18 @@ export const featuredCollections = [
 export const editorial = {
   /** Hero statement + the product whose image backs it. */
   hero: {
-    eyebrow: 'Festive & Wedding 2026',
-    headline: 'Heirlooms for the\nmoments that matter',
-    productHandle: 'girls-mint-floral-lehenga-dress',
-    cta: {label: 'Explore the collection', href: '/collections/all'},
+    eyebrow: 'Festive Collection 2026',
+    headline: 'Handcrafted for the\nmoments that matter',
+    productHandle: 'yellow-tiered-puff-sleeve-embroidered-dress',
+    cta: {label: "Explore women's collection", href: '/collections/womens'},
   },
-  /** Wedding storytelling band. */
+  /** Story band beneath the hero. */
   wedding: {
-    eyebrow: 'The Wedding Edit',
+    eyebrow: 'The Festive Edit',
     headline: 'Dressed for every celebration',
-    body: 'From mehendi mornings to reception evenings — pieces made to be photographed and remembered.',
-    productHandle: 'blue-gold-brocade-saree',
-    cta: {label: 'Shop the wedding collection', href: '/collections/wedding-collection'},
+    body: 'From intimate pujas to grand weddings — pieces made with care, made to be remembered.',
+    productHandle: 'white-gold-polka-dot-kurta-set',
+    cta: {label: "Shop all women's", href: '/collections/womens'},
   },
 };
 
@@ -112,11 +103,12 @@ export const footerColumns = [
   {
     heading: 'Shop',
     links: [
-      {label: 'Sarees', href: '/collections/sarees'},
-      {label: 'Salwar Suits', href: '/collections/salwar-suits'},
-      {label: 'Kids Ethnic', href: '/collections/kids-ethnic'},
-      {label: 'Kurta Sets', href: '/collections/kurta-sets'},
-      {label: 'Wedding Collection', href: '/collections/wedding-collection'},
+      {label: "All Women's", href: '/collections/womens'},
+      {label: 'Dresses', href: '/collections/women-dresses'},
+      {label: 'Kurta Sets', href: '/collections/women-kurta-sets'},
+      {label: 'Unstitched Suit Sets', href: '/collections/women-unstitched-suits'},
+      {label: 'Girls Clothing', href: '/collections/kids-girls'},
+      {label: 'Boys Clothing', href: '/collections/kids-boys'},
       {label: 'All Collections', href: '/collections'},
     ],
   },

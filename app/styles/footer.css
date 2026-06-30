@@ -1,0 +1,169 @@
+/* ============================================================================
+ * 15 · FOOTER
+ * ========================================================================== */
+.site-footer {
+  background: var(--color-surface-dark);
+  color: var(--color-on-dark);
+}
+
+.site-footer__top {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: clamp(3.5rem, 7vw, 6rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 64em) {
+  .site-footer__top {
+    grid-template-columns: 1.4fr 2fr;
+  }
+}
+
+.site-footer__brand h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-footer__brand p {
+  margin-top: 1rem;
+  max-width: 34ch;
+  color: rgba(250, 248, 245, 0.66);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.newsletter {
+  margin-top: 2rem;
+  max-width: 28rem;
+}
+
+.newsletter label {
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.newsletter__field {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  border-bottom: 1px solid rgba(250, 248, 245, 0.28);
+  padding-bottom: 0.6rem;
+}
+
+.newsletter__field input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  color: var(--color-on-dark);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.35rem 0;
+}
+
+.newsletter__field input::placeholder {
+  color: rgba(250, 248, 245, 0.4);
+}
+
+.newsletter__field input:focus {
+  outline: none;
+}
+
+.newsletter__field button {
+  background: none;
+  border: 0;
+  color: var(--color-on-dark);
+  font-size: 0.74rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.newsletter__note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: rgba(250, 248, 245, 0.5);
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 48em) {
+  .site-footer__cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.site-footer__col h3 {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.site-footer__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.site-footer__col a {
+  font-size: 0.92rem;
+  color: rgba(250, 248, 245, 0.72);
+  transition: color var(--duration-fast) var(--ease-out-soft);
+}
+
+.site-footer__col a:hover {
+  color: var(--color-on-dark);
+}
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(250, 248, 245, 0.14);
+}
+
+.site-footer__bottom-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(250, 248, 245, 0.5);
+}
+
+/* Legacy footer fallback (in case the Shopify footer menu renders). */
+.footer {
+  background: var(--color-surface-dark);
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem var(--gutter);
+}
+
+.footer-menu a {
+  color: rgba(250, 248, 245, 0.72);
+  font-size: 0.85rem;
+  letter-spacing: var(--tracking-wide);
+}

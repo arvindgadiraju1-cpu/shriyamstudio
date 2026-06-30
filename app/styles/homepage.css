@@ -1,0 +1,335 @@
+/* ============================================================================
+ * 13 · HOMEPAGE
+ * ========================================================================== */
+.home {
+  margin: 0;
+}
+
+/* --- Editorial hero (full-bleed image, absolutely filled so it never voids) - */
+.hero {
+  position: relative;
+  min-height: clamp(560px, 92svh, 900px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--color-surface-soft);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 15, 12, 0.3) 0%,
+    rgba(17, 15, 12, 0) 26%,
+    rgba(17, 15, 12, 0.08) 52%,
+    rgba(17, 15, 12, 0.68) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 0 var(--gutter) clamp(2.75rem, 9vw, 6.5rem);
+}
+
+.hero__copy {
+  max-width: 34rem;
+  color: var(--color-on-dark);
+}
+
+.hero__copy .eyebrow {
+  color: var(--color-gold);
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 11vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  white-space: pre-line;
+  margin: 1.1rem 0 0;
+}
+
+.hero__actions {
+  margin-top: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+/* --- Generic homepage section shell ---------------------------------------- */
+.home-section {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--section-space) var(--gutter);
+}
+
+.home-section--flush-top {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* --- Wedding storytelling band (dark) -------------------------------------- */
+.wedding-story__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-block: var(--section-space);
+  align-items: center;
+}
+
+.wedding-story__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: rgba(250, 248, 245, 0.06);
+}
+
+.wedding-story__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wedding-story__copy {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.wedding-story__copy h2 {
+  color: var(--color-on-dark);
+}
+
+.wedding-story__copy p {
+  color: rgba(250, 248, 245, 0.72);
+  max-width: 44ch;
+}
+
+@media (min-width: 64em) {
+  .wedding-story__inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+}
+
+/* --- Brand story (centered editorial statement) ---------------------------- */
+.brand-story {
+  text-align: center;
+}
+
+.brand-story__inner {
+  max-width: var(--container-text);
+  margin-inline: auto;
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.brand-story__statement {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.75rem);
+  line-height: 1.28;
+  letter-spacing: var(--tracking-snug);
+}
+
+/* --- Inspiration gallery ---------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-surface-soft);
+}
+
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-image) var(--ease-luxury);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item__label {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  color: var(--color-on-dark);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 64em) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ============================================================================
+ * 19 · COLLECTION VIDEO STRIP — homepage editorial video section
+ * ========================================================================== */
+.video-strip {
+  background: var(--color-surface-dark);
+  color: var(--color-on-dark);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.video-strip__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.video-strip__header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.video-strip__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.video-strip__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: var(--tracking-snug);
+}
+
+.video-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.video-strip__card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 3/4;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-surface-dark-raised);
+}
+
+.video-strip__media {
+  position: absolute;
+  inset: 0;
+}
+
+.video-strip__video,
+.video-strip__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease-luxury);
+}
+
+.video-strip__card:hover .video-strip__video,
+.video-strip__card:hover .video-strip__img {
+  transform: scale(1.03);
+}
+
+.video-strip__placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--color-surface-dark-raised) 0%, #0d2d28 100%);
+}
+
+/* Gradient scrim from bottom */
+.video-strip__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 15, 12, 0.82) 0%,
+    rgba(17, 15, 12, 0.3) 45%,
+    transparent 70%
+  );
+}
+
+/* Caption overlay */
+.video-strip__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  pointer-events: none;
+}
+
+.video-strip__caption-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.video-strip__caption-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  color: var(--color-on-dark);
+  line-height: 1.2;
+}
+
+.video-strip__cta {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 0.25rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.video-strip__card:hover .video-strip__cta {
+  opacity: 1;
+  transform: translateY(0);
+}

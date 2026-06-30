@@ -6,6 +6,7 @@ import {FeaturedCollections} from '~/components/marketing/FeaturedCollections';
 import {WeddingStory} from '~/components/marketing/WeddingStory';
 import {BrandStory} from '~/components/marketing/BrandStory';
 import {InspirationGallery} from '~/components/marketing/InspirationGallery';
+import {CollectionVideoStrip} from '~/components/marketing/CollectionVideoStrip';
 import {buildCuratedCollectionSummaries} from '~/lib/collectionConfig';
 import {editorial, featuredCollections} from '~/lib/storeConfig';
 
@@ -23,8 +24,18 @@ export const meta = () => {
 /**
  * @param {Route.LoaderArgs} args
  */
+// Collection definitions for the video strip
+const VIDEO_STRIP_COLLECTIONS = [
+  {handle: 'womens', title: "Women's Ethnic Wear", eyebrow: 'Dresses & Sets', tags: ['audience:women']},
+  {handle: 'women-unstitched-suits', title: 'Unstitched Suit Sets', eyebrow: 'Handpicked fabrics', tags: ['category:unstitched-suit']},
+  {handle: 'kids', title: 'Kids Ethnic Wear', eyebrow: 'Little celebrations', tags: ['audience:kids']},
+];
+
 export async function loader({context}) {
-  const {products} = await context.storefront.query(HOME_QUERY);
+  const [{products}, {products: videoProducts}] = await Promise.all([
+    context.storefront.query(HOME_QUERY),
+    context.storefront.query(VIDEO_STRIP_QUERY),
+  ]);
   const nodes = products.nodes;
   const byHandle = (handle) => nodes.find((node) => node.handle === handle);
 
@@ -62,12 +73,34 @@ export async function loader({context}) {
       image: node.featuredImage,
     }));
 
-  return {featured, heroImage, weddingImage, newArrivals, gallery};
+  // Build video strip: one card per collection, preferring a product with video
+  const videoNodes = videoProducts.nodes;
+  const videoStrip = VIDEO_STRIP_COLLECTIONS.map((col) => {
+    const matching = videoNodes.filter((p) =>
+      col.tags.some((t) => p.tags?.includes(t)),
+    );
+    const withVideo = matching.find(
+      (p) => p.media?.nodes?.some((m) => m.__typename === 'Video'),
+    );
+    const chosen = withVideo || matching[0];
+    if (!chosen) return null;
+
+    const videoNode = chosen.media?.nodes?.find((m) => m.__typename === 'Video');
+    return {
+      handle: col.handle,
+      title: col.title,
+      eyebrow: col.eyebrow,
+      video: videoNode || null,
+      image: chosen.featuredImage || null,
+    };
+  }).filter(Boolean);
+
+  return {featured, heroImage, weddingImage, newArrivals, gallery, videoStrip};
 }
 
 export default function Homepage() {
   /** @type {LoaderReturnData} */
-  const {featured, heroImage, weddingImage, newArrivals, gallery} = useLoaderData();
+  const {featured, heroImage, weddingImage, newArrivals, gallery, videoStrip} = useLoaderData();
 
   return (
     <div className="home">
@@ -105,6 +138,9 @@ export default function Homepage() {
           ))}
         </div>
       </Section>
+
+      {/* Video strip — collections in motion */}
+      {videoStrip.length > 0 && <CollectionVideoStrip items={videoStrip} />}
 
       {/* Wedding storytelling */}
       <WeddingStory
@@ -165,6 +201,30 @@ const HOME_QUERY = `#graphql
     products(first: 50, sortKey: UPDATED_AT, reverse: true) {
       nodes {
         ...HomeProductCard
+      }
+    }
+  }
+`;
+
+const VIDEO_STRIP_QUERY = `#graphql
+  query HomeVideoStrip($country: CountryCode, $language: LanguageCode)
+    @inContext(country: $country, language: $language) {
+    products(first: 30, sortKey: UPDATED_AT, reverse: true) {
+      nodes {
+        handle
+        tags
+        featuredImage { url altText width height }
+        media(first: 6) {
+          nodes {
+            __typename
+            mediaContentType
+            ... on Video {
+              id
+              sources { url mimeType format height width }
+              previewImage { url altText width height }
+            }
+          }
+        }
       }
     }
   }

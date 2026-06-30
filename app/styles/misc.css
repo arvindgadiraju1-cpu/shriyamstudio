@@ -1,0 +1,256 @@
+/* ============================================================================
+ * 16 · SEARCH RESULTS, BLOG, ACCOUNT, POLICIES, MISC
+ * ========================================================================== */
+.search-overlay__results {
+  margin-top: 2.5rem;
+}
+
+.search-overlay__status {
+  margin-top: 2.5rem;
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+}
+
+.predictive-search-result,
+.search-result {
+  margin-bottom: 2rem;
+}
+
+.predictive-search-result h5,
+.search-result h2 {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin-bottom: 1rem;
+}
+
+.predictive-search-result-item a,
+.search-results-item a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+}
+
+.predictive-search-result-item img,
+.search-results-item img {
+  width: 56px;
+  height: 70px;
+  object-fit: cover;
+  background: var(--color-surface-soft);
+}
+
+/* Generic content pages (policies, pages, blog, account). */
+.policies,
+.policy,
+.page,
+.blog,
+.article,
+.account,
+.accounts {
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) var(--section-space);
+}
+
+.page h1,
+.policy h1,
+.article h1,
+.blog h1,
+.account h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-snug);
+  margin-bottom: 1.5rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.blog-article-image {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-surface-soft);
+}
+
+.blog-article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article img {
+  width: 100%;
+  height: auto;
+}
+
+.account-logout {
+  display: inline-block;
+}
+
+.order-search-form {
+  margin-bottom: 1.5rem;
+}
+
+.order-search-fieldset {
+  border: 1px solid var(--color-line);
+  padding: 1.25rem;
+}
+
+.order-search-legend {
+  font-weight: 500;
+  padding: 0 0.5rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-size: 0.74rem;
+}
+
+.order-search-inputs {
+  display: grid;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40em) {
+  .order-search-inputs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.order-search-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface-raised);
+  font: inherit;
+}
+
+.order-search-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* MockShopNotice — restyled to a quiet, on-brand note. */
+.mock-shop-notice {
+  max-width: var(--container-wide);
+  margin: 1.5rem auto;
+  background: var(--color-surface-soft);
+  border-left: 3px solid var(--color-accent);
+}
+
+.mock-shop-notice .inner {
+  padding: 1rem 1.25rem;
+}
+
+.mock-shop-notice h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.mock-shop-notice code {
+  background: rgba(17, 17, 17, 0.06);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+/* Error boundary. */
+.route-error {
+  max-width: var(--container-text);
+  margin: 0 auto;
+  padding: clamp(4rem, 12vw, 9rem) var(--gutter);
+  text-align: center;
+}
+
+.route-error h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+}
+
+.route-error pre {
+  white-space: pre-wrap;
+  text-align: left;
+  background: var(--color-surface-soft);
+  padding: 1rem;
+  overflow: auto;
+  font-size: 0.8rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.pagination a,
+.pagination button {
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ── Infinite scroll ────────────────────────────────────────── */
+.infinite-scroll-sentinel {
+  height: 1px;
+  margin-top: 2rem;
+}
+
+/* Completely hidden — clicked programmatically */
+.infinite-scroll-next-wrap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Three pulsing dots */
+.infinite-scroll-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 2rem 0 3rem;
+}
+
+.infinite-scroll-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: dot-pulse 1.2s ease-in-out infinite;
+}
+
+.infinite-scroll-dot:nth-child(2) { animation-delay: 0.2s; }
+.infinite-scroll-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-pulse {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.8); }
+  40%            { opacity: 1;    transform: scale(1);   }
+}
+
+/* Hide previous-page link visually but keep it accessible */
+.pagination-link-previous.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
