@@ -10,6 +10,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* iOS Safari doesn't reliably respect overflow-x:hidden on body alone —
+     an overflowing descendant can still scroll the root horizontally. */
+  overflow-x: hidden;
 }
 
 html,
