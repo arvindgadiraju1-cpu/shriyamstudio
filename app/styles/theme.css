@@ -37,6 +37,7 @@
   --radius-none: 0px;
   --radius-sm: 2px;
   --radius-md: 4px;
+  --radius-pill: 999px;
 
   /* ---- Breakpoints · mirror of tokens.ts `breakpoint` -------------------- */
   --breakpoint-sm: 40em;

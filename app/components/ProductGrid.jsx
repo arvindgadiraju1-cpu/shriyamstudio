@@ -199,7 +199,7 @@ function QuickViewModal({product, onClose}) {
           ) : null}
           <h2 id="quick-view-title">{product.title}</h2>
           <p className="quick-view-price">
-            <Money data={product.priceRange.minVariantPrice} />
+            <Money data={product.priceRange.minVariantPrice} withoutTrailingZeros />
           </p>
           {product.description ? <p>{product.description}</p> : null}
           <div className="quick-view-tags">

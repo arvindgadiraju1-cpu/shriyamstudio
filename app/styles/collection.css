@@ -36,19 +36,6 @@
 .product-item {
   display: block;
   color: var(--color-ink);
-  background: var(--color-surface-raised);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: border-color var(--duration-base) var(--ease-out-soft),
-    transform var(--duration-base) var(--ease-out-soft),
-    box-shadow var(--duration-base) var(--ease-out-soft);
-}
-
-.product-item:hover {
-  border-color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-soft);
 }
 
 .product-item-media {
@@ -59,6 +46,9 @@
   background: var(--color-surface-soft);
 }
 
+/* Faint warm wash so heterogeneous catalog photography (courtyard hangers,
+   flat-laid fabric, studio shots) reads as one boutique even with no card
+   border to contain it. */
 .product-item-media::after {
   content: '';
   position: absolute;
@@ -84,14 +74,13 @@
 .product-item-details {
   display: grid;
   gap: 0.25rem;
-  padding: 0.7rem 0.75rem 0.85rem;
+  padding-top: 0.75rem;
 }
 
-.product-item-type,
 .collection-teaser-copy span,
 .collection-item-copy span {
   font-family: var(--font-body);
-  font-size: 0.56rem;
+  font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -110,6 +99,13 @@
   font-weight: 400;
   line-height: 1.3;
   color: var(--color-ink);
+  transition: color var(--duration-base) var(--ease-out-soft);
+}
+
+.product-item:hover .product-item-title,
+.collection-teaser:hover strong,
+.collection-item:hover strong {
+  color: var(--color-accent);
 }
 
 .product-item-price,
@@ -121,32 +117,45 @@
   letter-spacing: 0.01em;
 }
 
-/* Quick-view trigger on a card — appears on hover (desktop). */
-.product-quick-view-trigger {
+/* Quick-view — a quiet corner affordance instead of a full-width label,
+   so it previews the product without competing with the photo. */
+.product-item-quickview {
   position: absolute;
-  left: 50%;
-  bottom: 1rem;
-  transform: translate(-50%, 8px);
-  background: var(--color-surface-raised);
+  right: 0.6rem;
+  bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: rgba(250, 248, 245, 0.92);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
   color: var(--color-ink);
-  border: 0;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
   opacity: 0;
+  transform: translateY(4px);
   transition: opacity var(--duration-base) var(--ease-out-soft),
-    transform var(--duration-base) var(--ease-out-soft);
+    transform var(--duration-base) var(--ease-out-soft),
+    border-color var(--duration-base) var(--ease-out-soft);
 }
 
-.product-item-media:hover .product-quick-view-trigger {
+.product-item-quickview svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.product-item-media:hover .product-item-quickview {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
+}
+
+.product-item-quickview:hover {
+  border-color: var(--color-gold);
+  color: var(--color-accent);
 }
 
 @media (hover: none) {
-  .product-quick-view-trigger {
+  .product-item-quickview {
     display: none;
   }
 }
@@ -230,20 +239,6 @@
 .collection-item {
   display: block;
   color: var(--color-ink);
-  background: var(--color-surface-raised);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: border-color var(--duration-base) var(--ease-out-soft),
-    transform var(--duration-base) var(--ease-out-soft),
-    box-shadow var(--duration-base) var(--ease-out-soft);
-}
-
-.collection-teaser:hover,
-.collection-item:hover {
-  border-color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-soft);
 }
 
 .collection-teaser-media,
@@ -273,8 +268,8 @@
 .collection-teaser-copy,
 .collection-item-copy {
   display: grid;
-  gap: 0.3rem;
-  padding: 0.85rem 0.9rem 1rem;
+  gap: 0.25rem;
+  padding-top: 0.75rem;
 }
 
 .collection-item-copy p {

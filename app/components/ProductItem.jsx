@@ -32,18 +32,10 @@ export function ProductItem({product, loading, onQuickView}) {
             sizes="(min-width: 64em) 33vw, (min-width: 45em) 50vw, 100vw"
           />
         )}
-      </span>
-      <span className="product-item-details">
-        {product.productType ? (
-          <span className="product-item-type">{product.productType}</span>
-        ) : null}
-        <span className="product-item-title">{product.title}</span>
-        <span className="product-item-price">
-          <Money data={product.priceRange.minVariantPrice} />
-        </span>
         {onQuickView ? (
           <button
-            className="product-quick-view-trigger"
+            aria-label={`Quick view ${product.title}`}
+            className="product-item-quickview"
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
@@ -51,9 +43,23 @@ export function ProductItem({product, loading, onQuickView}) {
             }}
             type="button"
           >
-            Quick view
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+              />
+              <circle cx="12" cy="12" r="2.6" stroke="currentColor" strokeWidth="1.4" />
+            </svg>
           </button>
         ) : null}
+      </span>
+      <span className="product-item-details">
+        <span className="product-item-title">{product.title}</span>
+        <span className="product-item-price">
+          <Money data={product.priceRange.minVariantPrice} withoutTrailingZeros />
+        </span>
       </span>
     </Link>
   );
