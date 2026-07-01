@@ -149,6 +149,24 @@
   color: rgba(250, 248, 245, 0.5);
 }
 
+.site-footer__credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  transition: color var(--duration-base) var(--ease-out-soft);
+}
+
+.site-footer__credit svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.site-footer__credit:hover {
+  color: var(--color-gold);
+}
+
 /* Legacy footer fallback (in case the Shopify footer menu renders). */
 .footer {
   background: var(--color-surface-dark);
