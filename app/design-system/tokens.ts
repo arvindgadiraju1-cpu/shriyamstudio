@@ -34,6 +34,10 @@ export const color = {
 
   /** Primary text. */
   ink: '#111111',
+  /** Editorial serif voice — product/collection titles. Warmer than `ink` so
+   *  display type sits gently on the ivory page instead of reading as stark
+   *  print-black; reserved for the display face, not UI/utility text. */
+  inkWarm: '#2B2420',
   /** Secondary text. */
   inkMuted: '#666666',
   /** Tertiary text, captions, disabled. */

@@ -88,8 +88,16 @@
   text-indent: 0.2em;
   line-height: 1;
   text-transform: uppercase;
-  color: var(--chrome-fg);
+  /* The wordmark carries the brand's own teal, not generic chrome ink —
+     it's the one place the logo's actual color belongs. */
+  color: var(--color-surface-dark);
   white-space: nowrap;
+}
+
+/* Over a transparent hero the header still needs to read against imagery,
+   so the wordmark falls back to on-dark cream like the rest of the chrome. */
+.chrome[data-transparent='true'][data-scrolled='false'] .site-brand {
+  color: var(--color-on-dark);
 }
 
 /* Left zone holds the mobile menu toggle + the desktop nav. */
