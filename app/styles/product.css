@@ -277,7 +277,9 @@
 .product-gallery__thumbs {
   display: flex;
   gap: 0.4rem;
-  padding: 0.5rem;
+  /* No horizontal padding — the strip's edges should stay flush with the
+     main image above it, which has none. Vertical padding only. */
+  padding: 0.5rem 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
