@@ -102,17 +102,25 @@ export async function loader({context}) {
       image: node.featuredImage,
     }));
 
-  // Build video strip: one card per collection, preferring a product with video
+  // Build video strip: one card per collection, preferring a product with video.
+  // Products can match more than one collection's tags (every unstitched-suit
+  // product is also tagged audience:women), so slides are resolved sequentially
+  // and each chosen product is excluded from later slides — otherwise two
+  // collections can end up picking the identical product/video.
   const videoNodes = videoProducts.nodes;
+  const usedVideoHandles = new Set();
   const videoStrip = VIDEO_STRIP_COLLECTIONS.map((col) => {
-    const matching = videoNodes.filter((p) =>
-      col.tags.some((t) => p.tags?.includes(t)),
+    const matching = videoNodes.filter(
+      (p) =>
+        col.tags.some((t) => p.tags?.includes(t)) &&
+        !usedVideoHandles.has(p.handle),
     );
     const withVideo = matching.find(
       (p) => p.media?.nodes?.some((m) => m.__typename === 'Video'),
     );
     const chosen = withVideo || matching[0];
     if (!chosen) return null;
+    usedVideoHandles.add(chosen.handle);
 
     const videoNode = chosen.media?.nodes?.find((m) => m.__typename === 'Video');
     return {

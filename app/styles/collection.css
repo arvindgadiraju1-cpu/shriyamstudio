@@ -36,6 +36,19 @@
 .product-item {
   display: block;
   color: var(--color-ink);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-base) var(--ease-out-soft),
+    transform var(--duration-base) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-out-soft);
+}
+
+.product-item:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
 }
 
 .product-item-media {
@@ -70,15 +83,15 @@
 
 .product-item-details {
   display: grid;
-  gap: 0.4rem;
-  padding-top: 1rem;
+  gap: 0.25rem;
+  padding: 0.7rem 0.75rem 0.85rem;
 }
 
 .product-item-type,
 .collection-teaser-copy span,
 .collection-item-copy span {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.56rem;
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -88,10 +101,14 @@
 .product-item-title,
 .collection-teaser-copy strong,
 .collection-item-copy strong {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--color-ink);
 }
 
@@ -99,7 +116,7 @@
 .collection-teaser-copy small,
 .collection-item-copy small {
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.72rem;
   color: var(--color-ink-muted);
   letter-spacing: 0.01em;
 }
@@ -213,6 +230,20 @@
 .collection-item {
   display: block;
   color: var(--color-ink);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-base) var(--ease-out-soft),
+    transform var(--duration-base) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-out-soft);
+}
+
+.collection-teaser:hover,
+.collection-item:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
 }
 
 .collection-teaser-media,
@@ -242,12 +273,12 @@
 .collection-teaser-copy,
 .collection-item-copy {
   display: grid;
-  gap: 0.4rem;
-  padding-top: 1rem;
+  gap: 0.3rem;
+  padding: 0.85rem 0.9rem 1rem;
 }
 
 .collection-item-copy p {
-  font-size: 0.92rem;
+  font-size: 0.78rem;
   line-height: 1.5;
   color: var(--color-ink-muted);
   margin-top: 0.25rem;
