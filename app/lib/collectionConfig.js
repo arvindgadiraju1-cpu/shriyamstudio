@@ -1,5 +1,5 @@
 /**
- * Collection definitions for the Shriyam Studio storefront.
+ * Collection definitions for the Shriyam storefront.
  *
  * CURATED_COLLECTIONS — virtual collections resolved from the full product list
  * when a Shopify collection with that handle doesn't exist yet.

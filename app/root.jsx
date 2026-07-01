@@ -96,7 +96,9 @@ export async function loader(args) {
       publicStorefrontId: env.PUBLIC_STOREFRONT_ID,
     }),
     consent: {
-      checkoutDomain: env.PUBLIC_CHECKOUT_DOMAIN,
+      // No custom checkout domain configured for this store — the myshopify
+      // domain doubles as the checkout domain in that case.
+      checkoutDomain: env.PUBLIC_CHECKOUT_DOMAIN || env.PUBLIC_STORE_DOMAIN,
       storefrontAccessToken: env.PUBLIC_STOREFRONT_API_TOKEN,
       withPrivacyBanner: false,
       // localize the privacy banner
@@ -172,7 +174,7 @@ export function Layout({children}) {
         {/* Brand-teal browser/OS chrome + premium social-share card (per-page
             <title> still comes from each route's meta via <Meta/>). */}
         <meta name="theme-color" content="#143A34" />
-        <meta property="og:site_name" content="Shriyam Studio" />
+        <meta property="og:site_name" content="Shriyam" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1200" />

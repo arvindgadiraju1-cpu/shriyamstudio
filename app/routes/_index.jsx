@@ -1,7 +1,7 @@
 import {useLoaderData} from 'react-router';
 import {ProductItem} from '~/components/ProductItem';
 import {Section, SectionHeading} from '~/components/ui/Layout';
-import {Hero} from '~/components/marketing/Hero';
+import {HeroCarousel} from '~/components/marketing/HeroCarousel';
 import {FeaturedCollections} from '~/components/marketing/FeaturedCollections';
 import {WeddingStory} from '~/components/marketing/WeddingStory';
 import {BrandStory} from '~/components/marketing/BrandStory';
@@ -12,11 +12,11 @@ import {editorial, featuredCollections} from '~/lib/storeConfig';
 
 export const meta = () => {
   return [
-    {title: 'Shriyam Studio | Indian Ethnic Wear'},
+    {title: 'Shriyam | Indian Ethnic Wear'},
     {
       name: 'description',
       content:
-        'Handcrafted Indian ethnic wear — sarees, salwar suits, kurta sets, lehengas, and wedding pieces from Shriyam Studio.',
+        'Handcrafted Indian ethnic wear — sarees, salwar suits, kurta sets, lehengas, and wedding pieces from Shriyam.',
     },
   ];
 };
@@ -32,9 +32,17 @@ const VIDEO_STRIP_COLLECTIONS = [
 ];
 
 export async function loader({context}) {
-  const [{products}, {products: videoProducts}] = await Promise.all([
+  const heroHandles = editorial.heroSlides.map((slide) => slide.productHandle);
+  const heroVariables = Object.fromEntries(
+    heroHandles.map((handle, i) => [`h${i}`, handle]),
+  );
+
+  const [{products}, {products: videoProducts}, heroProducts] = await Promise.all([
     context.storefront.query(HOME_QUERY),
     context.storefront.query(VIDEO_STRIP_QUERY),
+    context.storefront.query(buildHeroSlidesQuery(heroHandles), {
+      variables: heroVariables,
+    }),
   ]);
   const nodes = products.nodes;
   const byHandle = (handle) => nodes.find((node) => node.handle === handle);
@@ -52,11 +60,32 @@ export async function loader({context}) {
     };
   });
 
-  // Editorial imagery, anchored on the strongest catalog shots (storeConfig).
-  const heroImage =
-    byHandle(editorial.hero.productHandle)?.featuredImage ||
-    nodes[0]?.featuredImage ||
-    null;
+  // Hero carousel — each slide's image + CTA come from the SAME collection,
+  // resolved by exact product handle so they can never drift apart. Falls
+  // back to a tag match against recent products only if that product
+  // is ever removed or unpublished.
+  const heroSlides = editorial.heroSlides
+    .map((slide, i) => {
+      const product = heroProducts[`p${i}`];
+      const fallback =
+        !product && slide.fallbackTags
+          ? nodes.find(
+              (p) =>
+                slide.fallbackTags.some((t) => p.tags?.includes(t)) &&
+                p.featuredImage,
+            )
+          : null;
+      const image = product?.featuredImage || fallback?.featuredImage;
+      if (!image) return null;
+      return {
+        eyebrow: slide.eyebrow,
+        headline: slide.headline,
+        cta: slide.cta,
+        image,
+      };
+    })
+    .filter(Boolean);
+
   const weddingImage =
     byHandle(editorial.wedding.productHandle)?.featuredImage ||
     nodes[1]?.featuredImage ||
@@ -95,21 +124,16 @@ export async function loader({context}) {
     };
   }).filter(Boolean);
 
-  return {featured, heroImage, weddingImage, newArrivals, gallery, videoStrip};
+  return {featured, heroSlides, weddingImage, newArrivals, gallery, videoStrip};
 }
 
 export default function Homepage() {
   /** @type {LoaderReturnData} */
-  const {featured, heroImage, weddingImage, newArrivals, gallery, videoStrip} = useLoaderData();
+  const {featured, heroSlides, weddingImage, newArrivals, gallery, videoStrip} = useLoaderData();
 
   return (
     <div className="home">
-      <Hero
-        image={heroImage}
-        eyebrow={editorial.hero.eyebrow}
-        headline={editorial.hero.headline}
-        cta={editorial.hero.cta}
-      />
+      <HeroCarousel slides={heroSlides} />
 
       {/* Shop by category */}
       <Section size="default">
@@ -154,7 +178,7 @@ export default function Homepage() {
       {/* Brand story */}
       <BrandStory
         eyebrow="Our Story"
-        statement="Every Shriyam Studio piece is made to order and crafted by hand — soft drapes, considered embroidery, and colour chosen for the people you celebrate with."
+        statement="Every Shriyam piece is made to order and crafted by hand — soft drapes, considered embroidery, and colour chosen for the people you celebrate with."
         cta={{label: 'Discover the studio', href: '/collections/all'}}
       />
 
@@ -205,6 +229,35 @@ const HOME_QUERY = `#graphql
     }
   }
 `;
+
+const HERO_SLIDE_FRAGMENT = `#graphql
+  fragment HeroSlideProduct on Product {
+    handle
+    tags
+    featuredImage {
+      id
+      altText
+      url
+      width
+      height
+    }
+  }
+`;
+
+/** Builds one query that fetches every hero slide's product by exact handle (aliased p0, p1, ...). */
+function buildHeroSlidesQuery(handles) {
+  const variableDefs = handles.map((_, i) => `$h${i}: String!`).join(', ');
+  const fields = handles
+    .map((_, i) => `p${i}: product(handle: $h${i}) { ...HeroSlideProduct }`)
+    .join('\n    ');
+  return `#graphql
+    query HeroSlides(${variableDefs}, $country: CountryCode, $language: LanguageCode)
+      @inContext(country: $country, language: $language) {
+      ${fields}
+    }
+    ${HERO_SLIDE_FRAGMENT}
+  `;
+}
 
 const VIDEO_STRIP_QUERY = `#graphql
   query HomeVideoStrip($country: CountryCode, $language: LanguageCode)

@@ -14,8 +14,8 @@ export const meta = ({data}) => {
   return [
     {
       title: data?.collection
-        ? `Shriyam Studio | ${data.collection.title}`
-        : 'Shriyam Studio | Collection',
+        ? `Shriyam | ${data.collection.title}`
+        : 'Shriyam | Collection',
     },
   ];
 };

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Shriyam Studio — Drive-to-Shopify Sync Agent
+ * Shriyam — Drive-to-Shopify Sync Agent
  *
  * Reads the organized Google Drive folder, creates Shopify products, and
  * uploads all media. Tracks state so re-runs only process new/changed files.
  *
  * Flags:
  *   --dry-run   Print what would happen without making API calls
- *   --reset     Delete all existing Shriyam Studio products and re-sync
+ *   --reset     Delete all existing Shriyam products and re-sync
  *   --watch     Poll the Drive folder every 60 seconds for changes
  *
  * Run:  node scripts/sync-drive-to-shopify.js
@@ -321,7 +321,7 @@ async function createProduct(title, type, tags, sku) {
     product: {
       title,
       body_html: '',
-      vendor: 'Shriyam Studio',
+      vendor: 'Shriyam',
       product_type: type,
       tags: tags.join(', '),
       handle,
@@ -631,7 +631,7 @@ async function sync(state) {
 
 // ── Reset: delete existing products ──────────────────────────────────────────
 async function resetExistingProducts() {
-  console.log('Fetching existing Shriyam Studio products to delete...');
+  console.log('Fetching existing Shriyam products to delete...');
   const existing = await getExistingProducts();
   const ids = Object.values(existing).map(p => p.id);
   if (!ids.length) { console.log('No existing products found.'); return; }

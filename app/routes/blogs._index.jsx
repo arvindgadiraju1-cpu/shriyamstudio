@@ -6,7 +6,7 @@ import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Shriyam Studio | Blogs`}];
+  return [{title: `Shriyam | Blogs`}];
 };
 
 /**

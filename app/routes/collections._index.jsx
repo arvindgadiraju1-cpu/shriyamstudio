@@ -3,7 +3,7 @@ import {Image} from '@shopify/hydrogen';
 import {buildCuratedCollectionSummaries} from '~/lib/collectionConfig';
 
 export const meta = () => {
-  return [{title: 'Shriyam Studio | Collections'}];
+  return [{title: 'Shriyam | Collections'}];
 };
 
 /**

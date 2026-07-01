@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Shriyam Studio — UI Collection Sync Agent
+ * Shriyam — UI Collection Sync Agent
  *
  * Reads live Shopify collections and product counts, then rewrites
  * app/lib/collectionConfig.js so the storefront always reflects what's in
@@ -106,7 +106,7 @@ function generateConfig(collections) {
   for (const col of collections) {
     const meta = COLLECTION_DESCRIPTIONS[col.handle] || {
       eyebrow: col.title,
-      description: `${col.title} from Shriyam Studio.`,
+      description: `${col.title} from Shriyam.`,
     };
     lines.push('  {');
     lines.push(`    handle: '${col.handle}',`);

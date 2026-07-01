@@ -1,4 +1,4 @@
-# Hydrogen Developer Guide for Shriyam Studio
+# Hydrogen Developer Guide for Shriyam
 
 This project is a Shopify Hydrogen storefront. Think of it as a React app that runs on a Shopify-aware server runtime. The frontend is React, the routing and data loading are React Router, the commerce APIs are Shopify GraphQL APIs, and the production hosting target is usually Oxygen.
 
@@ -599,7 +599,7 @@ Then:
 
 ```jsx
 export default function About() {
-  return <main>About Shriyam Studio</main>;
+  return <main>About Shriyam</main>;
 }
 ```
 

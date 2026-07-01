@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * BUSINESS CONFIG — Shriyam Studio
+ * BUSINESS CONFIG — Shriyam
  * =============================================================================
  * The single, obvious home for merchandising & curation decisions. This is a
  * boutique, not a multi-tenant platform, so these values are intentionally
@@ -16,14 +16,13 @@
 
 /** Brand identity. */
 export const brand = {
-  name: 'Shriyam Studio',
+  name: 'Shriyam',
   /** Shown in the footer + meta. */
   tagline: 'Handcrafted Indian ethnic wear, made for the people you celebrate with.',
 };
 
 /** Rotating announcement-bar message (single string for now). */
-export const announcement =
-  'Complimentary shipping across India · Worldwide delivery · Made to order, dispatched in 4 weeks';
+export const announcement = '';
 
 /**
  * Primary navigation (desktop + mobile).
@@ -81,13 +80,42 @@ export const featuredCollections = [
  * Used in a later phase; safe to retune anytime.
  */
 export const editorial = {
-  /** Hero statement + the product whose image backs it. */
-  hero: {
-    eyebrow: 'Festive Collection 2026',
-    headline: 'Handcrafted for the\nmoments that matter',
-    productHandle: 'yellow-tiered-puff-sleeve-embroidered-dress',
-    cta: {label: "Explore women's collection", href: '/collections/womens'},
-  },
+  /**
+   * Hero carousel — each slide's image and CTA point at the SAME collection,
+   * so they can never drift apart. `productHandle` is looked up directly (works
+   * regardless of catalog size or recency); `fallbackTags` is only used if that
+   * product is ever removed/unpublished.
+   */
+  heroSlides: [
+    {
+      eyebrow: 'Festive Collection 2026',
+      headline: 'Handcrafted for the\nmoments that matter',
+      productHandle: 'wine-mirror-embroidery-anarkali-kurta-set',
+      fallbackTags: ['audience:women'],
+      cta: {label: "Explore Women's Collection", href: '/collections/womens'},
+    },
+    {
+      eyebrow: 'Curated Fabric Sets',
+      headline: 'Handpicked fabric,\nstitched to your fit',
+      productHandle: 'navy-tribal-geometric-suit-set',
+      fallbackTags: ['category:unstitched-suit'],
+      cta: {label: 'Shop Unstitched Suits', href: '/collections/women-unstitched-suits'},
+    },
+    {
+      eyebrow: 'Little Celebrations',
+      headline: 'Ethnic wear, made\nfor tiny moments',
+      productHandle: 'pink-mirror-buti-blouse-shorts-kids-girls-clothing',
+      fallbackTags: ['audience:kids'],
+      cta: {label: "Explore Kids' Collection", href: '/collections/kids'},
+    },
+    {
+      eyebrow: 'Effortless Silhouettes',
+      headline: 'Flowing dresses for\nfestive days ahead',
+      productHandle: 'mustard-yellow-gathered-maxi-dress',
+      fallbackTags: ['category:dress'],
+      cta: {label: 'Shop Dresses', href: '/collections/women-dresses'},
+    },
+  ],
   /** Story band beneath the hero. */
   wedding: {
     eyebrow: 'The Festive Edit',
@@ -126,8 +154,8 @@ export const footerColumns = [
     heading: 'Connect',
     links: [
       // External — update to the store's real handles.
-      {label: 'Instagram', href: 'https://instagram.com', external: true},
-      {label: 'WhatsApp', href: 'https://wa.me/', external: true},
+      {label: 'Instagram', href: 'https://www.instagram.com/shriyamstudio/', external: true},
+      {label: 'WhatsApp', href: 'https://wa.me/918463965336', external: true},
     ],
   },
 ];

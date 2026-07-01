@@ -1,5 +1,5 @@
 /**
- * Shriyam Studio — Design Tokens
+ * Shriyam — Design Tokens
  * =============================================================================
  * THE single source of truth for every primitive design value in the store:
  * color, spacing, radii, shadows, breakpoints, z-index, containers, tracking.
@@ -26,7 +26,7 @@ export const color = {
   /** Image mats / tiles — a hair deeper than surface so framed photos sit calmly. */
   surfaceSoft: '#F1ECE4',
   /** Deep contrast surface for footer / editorial inverse sections.
-   *  This is the BRAND TEAL drawn from the Shriyam Studio logo — peacock teal
+   *  This is the BRAND TEAL drawn from the Shriyam logo — peacock teal
    *  paired with gold + ivory. Used wherever the page goes dark. */
   surfaceDark: '#143A34',
   /** Slightly lifted teal for layered elements on a dark surface (hovers, tiles). */

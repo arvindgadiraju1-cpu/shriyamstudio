@@ -1,5 +1,5 @@
 /**
- * Womens size chart component — styled to the Shriyam Studio brand palette.
+ * Womens size chart component — styled to the Shriyam brand palette.
  * Rendered inline on the product page for all women's products.
  */
 

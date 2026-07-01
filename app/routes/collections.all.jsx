@@ -5,7 +5,7 @@ import {ProductGrid} from '~/components/ProductGrid';
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Shriyam Studio | All Products`}];
+  return [{title: `Shriyam | All Products`}];
 };
 
 /**
@@ -57,7 +57,7 @@ export default function Collection() {
         <h1 id="all-products-heading">All Products</h1>
         <p>
           Browse every saree, kids outfit, kurta set, salwar suit, and festive
-          piece currently available from Shriyam Studio.
+          piece currently available from Shriyam.
         </p>
       </section>
       <ProductGrid headingId="all-products-heading" products={products.nodes} />

@@ -8,7 +8,7 @@ import {getEmptyPredictiveSearchResult} from '~/lib/search';
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Shriyam Studio | Search`}];
+  return [{title: `Shriyam | Search`}];
 };
 
 /**

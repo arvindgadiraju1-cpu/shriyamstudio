@@ -70,7 +70,7 @@ function normalizeDomain(value) {
 }
 
 // --- Smart collection definitions ----------------------------------------
-// Derived from the live catalog (14 products, all vendor: Shriyam Studio).
+// Derived from the live catalog (14 products, all vendor: Shriyam).
 // disjunctive: true  → products matching ANY rule are included (OR logic)
 // disjunctive: false → products must match ALL rules (AND logic)
 const COLLECTIONS = [

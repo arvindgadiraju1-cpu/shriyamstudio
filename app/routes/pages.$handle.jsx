@@ -5,7 +5,7 @@ import {redirectIfHandleIsLocalized} from '~/lib/redirect';
  * @type {Route.MetaFunction}
  */
 export const meta = ({data}) => {
-  return [{title: `Shriyam Studio | ${data?.page.title ?? ''}`}];
+  return [{title: `Shriyam | ${data?.page.title ?? ''}`}];
 };
 
 /**

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {Image} from '@shopify/hydrogen';
 
 /**
@@ -42,6 +42,7 @@ export function ProductMediaGallery({media = [], selectedImage}) {
           {media.map((node, i) => (
             <button
               key={i}
+              type="button"
               role="listitem"
               aria-label={`${node.__typename === 'Video' ? 'Video' : 'Image'} ${i + 1}`}
               aria-current={i === activeIndex}
@@ -65,43 +66,75 @@ export function ProductMediaGallery({media = [], selectedImage}) {
   );
 }
 
+/** Dedicated video player — handles all autoplay quirks after SSR hydration. */
+function VideoPlayer({src, poster}) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Attempt play immediately (works if browser already has enough data)
+    el.play().catch(() => {});
+
+    // Retry once the browser has buffered enough — covers the common case
+    // where play() above fires before any data has loaded
+    function onCanPlay() {
+      el.play().catch(() => {});
+    }
+    el.addEventListener('canplay', onCanPlay);
+
+    return () => el.removeEventListener('canplay', onCanPlay);
+  }, [src]); // re-run whenever the src changes
+
+  return (
+    // eslint-disable-next-line jsx-a11y/media-has-caption
+    <video
+      ref={ref}
+      src={src}
+      muted
+      loop
+      playsInline
+      poster={poster}
+      className="product-gallery__video"
+    />
+  );
+}
+
 /** Main area — renders Image or Video based on media type. */
 function MediaMain({node}) {
   if (!node) return null;
 
-  if (node.__typename === 'Video') {
+  if (node.__typename === 'Video' || node.mediaContentType === 'VIDEO') {
     const sources = node.sources ?? [];
 
-    // Pick 480p MP4 for fastest start; fall back to any MP4
+    // Prefer 480p MP4 → any MP4 → any non-HLS → first available
     const mp4 =
       sources.find((s) => s.mimeType === 'video/mp4' && s.url?.includes('480p')) ||
       sources.find((s) => s.mimeType === 'video/mp4') ||
       sources.find((s) => s.format === 'mp4') ||
+      sources.find((s) => s.mimeType !== 'application/x-mpegURL') ||
+      sources[0] ||
       null;
 
-    const poster = node.previewImage?.url ?? undefined;
-
-    if (!mp4) return null;
+    if (!mp4) {
+      // sources empty — fall back to showing previewImage as still
+      if (node.previewImage?.url) {
+        return (
+          <img
+            src={node.previewImage.url}
+            alt=""
+            className="product-gallery__img"
+            style={{width:'100%',height:'100%',objectFit:'cover'}}
+          />
+        );
+      }
+      return null;
+    }
 
     return (
       <div className="product-gallery__video-wrap">
-        {/*
-          Use `src` directly (not <source> children) — browsers honour `autoPlay`
-          more reliably when src is an attribute rather than a child element.
-          `key` forces a full DOM remount whenever the URL changes.
-        */}
-        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <video
-          key={mp4.url}
-          src={mp4.url}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={poster}
-          onCanPlay={(e) => e.currentTarget.play().catch(() => {})}
-          className="product-gallery__video"
-        />
+        <VideoPlayer src={mp4.url} poster={node.previewImage?.url} />
       </div>
     );
   }

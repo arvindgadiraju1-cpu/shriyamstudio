@@ -21,15 +21,16 @@ export function SiteHeader({header, cart, isLoggedIn}) {
   const {pathname} = useLocation();
   const scrolled = useScrolled(24);
   const isHero = pathname === '/'; // hero pages get the transparent treatment
-  const brandName = brand.name || header?.shop?.name || 'Shriyam Studio';
+  const brandName = brand.name || header?.shop?.name || 'Shriyam';
 
   return (
     <div
       className="chrome"
       data-transparent={isHero ? 'true' : 'false'}
       data-scrolled={scrolled ? 'true' : 'false'}
+      style={!announcement ? {'--announcement-height': '0px'} : undefined}
     >
-      <p className="announcement">{announcement}</p>
+      {announcement && <p className="announcement">{announcement}</p>}
 
       <header className="site-header">
         <div className="site-header__inner">

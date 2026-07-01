@@ -22,6 +22,21 @@ export default async function handleRequest(
       checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
+    // Product videos are served from the shop's own myshopify.com domain.
+    // Hydrogen's default CSP only allowlists that domain for connect-src,
+    // not media-src, so <video> playback gets silently blocked without this.
+    mediaSrc: [
+      "'self'",
+      'https://cdn.shopify.com',
+      ...(context.env.PUBLIC_STORE_DOMAIN
+        ? [`https://${context.env.PUBLIC_STORE_DOMAIN}`]
+        : []),
+    ],
+    // Google Fonts (Playfair Display + Inter, see root.jsx): the stylesheet
+    // comes from fonts.googleapis.com, the actual font files from
+    // fonts.gstatic.com. Neither is allowlisted by Hydrogen's defaults.
+    styleSrc: ['https://fonts.googleapis.com'],
+    fontSrc: ["'self'", 'https://fonts.gstatic.com'],
   });
 
   const body = await renderToReadableStream(

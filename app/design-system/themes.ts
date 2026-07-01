@@ -1,5 +1,5 @@
 /**
- * Shriyam Studio — Theme
+ * Shriyam — Theme
  * =============================================================================
  * Assembles primitive tokens into the semantic "Modern Heirloom" theme: the
  * meaningful roles the UI actually references (surface / ink / accent / line),

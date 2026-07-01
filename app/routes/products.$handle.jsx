@@ -19,7 +19,7 @@ import {KidsSizeChart} from '~/components/KidsSizeChart';
  */
 export const meta = ({data}) => {
   return [
-    {title: `Shriyam Studio | ${data?.product.title ?? ''}`},
+    {title: `Shriyam | ${data?.product.title ?? ''}`},
     {
       rel: 'canonical',
       href: `/products/${data?.product.handle}`,

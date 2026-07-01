@@ -1,5 +1,5 @@
 /**
- * Shriyam Studio — Typography System
+ * Shriyam — Typography System
  * =============================================================================
  * One typed type-scale, consumed everywhere via the `.t-*` classes defined in
  * `app/styles/app.css`. Components never hardcode font sizes/weights — they use

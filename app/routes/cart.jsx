@@ -6,7 +6,7 @@ import {CartMain} from '~/components/CartMain';
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: `Shriyam Studio | Cart`}];
+  return [{title: `Shriyam | Cart`}];
 };
 
 /**

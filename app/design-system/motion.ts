@@ -1,5 +1,5 @@
 /**
- * Shriyam Studio — Motion System
+ * Shriyam — Motion System
  * =============================================================================
  * All animation primitives live here: durations, easings, and named presets.
  * Motion is CSS-driven (no animation library) so client JS stays minimal and

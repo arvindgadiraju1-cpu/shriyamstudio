@@ -4,7 +4,7 @@ import {Link, useLoaderData} from 'react-router';
  * @type {Route.MetaFunction}
  */
 export const meta = ({data}) => {
-  return [{title: `Shriyam Studio | ${data?.policy.title ?? ''}`}];
+  return [{title: `Shriyam | ${data?.policy.title ?? ''}`}];
 };
 
 /**
