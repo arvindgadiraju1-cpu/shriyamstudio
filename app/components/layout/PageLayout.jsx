@@ -6,6 +6,7 @@ import {SiteHeader} from '~/components/navigation/SiteHeader';
 import {MobileNav} from '~/components/navigation/MobileNav';
 import {SiteFooter} from '~/components/layout/SiteFooter';
 import {SearchOverlay} from '~/components/layout/SearchOverlay';
+import {announcement} from '~/lib/storeConfig';
 
 /**
  * PageLayout — the app shell: cart + mobile asides, search overlay, fixed
@@ -37,7 +38,15 @@ export function PageLayout({cart, children = null, header, isLoggedIn}) {
         <SiteHeader header={header} cart={cart} isLoggedIn={isLoggedIn} />
       )}
 
-      <main data-hero={isHero ? '' : undefined}>{children}</main>
+      {/* SiteHeader zeroes --announcement-height on the chrome when there's no
+          announcement, but main is a sibling — it must zero it too, or every
+          page reserves 40px of phantom space below the header. */}
+      <main
+        data-hero={isHero ? '' : undefined}
+        style={!announcement ? {'--announcement-height': '0px'} : undefined}
+      >
+        {children}
+      </main>
 
       <SiteFooter />
     </Aside.Provider>

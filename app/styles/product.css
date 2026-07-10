@@ -6,6 +6,11 @@
   margin-inline: auto;
   padding: clamp(2rem, 5vw, 4rem) var(--gutter) var(--section-space);
   display: grid;
+  /* Explicit minmax(0, …) track: an implicit auto track sizes to the gallery
+     image's intrinsic width on iOS Safari and overflows the viewport (left
+     gutter visible, right edge clipped). minmax(0, 1fr) pins the track to
+     exactly the available width. */
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4.5rem);
 }
 
@@ -28,7 +33,7 @@
 
 @media (min-width: 64em) {
   .product {
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     align-items: start;
   }
 }
