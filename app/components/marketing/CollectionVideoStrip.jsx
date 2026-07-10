@@ -1,4 +1,5 @@
 import {Link} from 'react-router';
+import {pickVideoSource} from '~/lib/video';
 
 /**
  * CollectionVideoStrip — editorial video/image cards that redirect to collections.
@@ -19,7 +20,12 @@ export function CollectionVideoStrip({items = []}) {
         </div>
 
         <div className="video-strip__grid">
-          {items.map((item) => (
+          {items.map((item) => {
+            // Four cards autoplay at once — 720p is crisp at card size without
+            // pulling four 1080p streams. Passing every <source> lets the
+            // browser take the first playable one, which was the soft 480p rung.
+            const src = item.video ? pickVideoSource(item.video.sources, 720) : null;
+            return (
             <Link
               key={item.handle}
               to={item.href || `/collections/${item.handle}`}
@@ -28,7 +34,7 @@ export function CollectionVideoStrip({items = []}) {
               aria-label={`Explore ${item.title}`}
             >
               <span className="video-strip__media">
-                {item.video ? (
+                {src ? (
                   /* eslint-disable-next-line jsx-a11y/media-has-caption */
                   <video
                     autoPlay
@@ -37,11 +43,8 @@ export function CollectionVideoStrip({items = []}) {
                     playsInline
                     poster={item.video.previewImage?.url}
                     className="video-strip__video"
-                  >
-                    {item.video.sources?.map((s) => (
-                      <source key={s.url} src={s.url} type={s.mimeType} />
-                    ))}
-                  </video>
+                    src={src.url}
+                  />
                 ) : item.image ? (
                   <img
                     src={item.image.url}
@@ -68,7 +71,8 @@ export function CollectionVideoStrip({items = []}) {
                 </span>
               </span>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

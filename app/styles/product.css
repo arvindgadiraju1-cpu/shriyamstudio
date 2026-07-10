@@ -169,6 +169,13 @@
   min-width: 100px;
 }
 
+/* Scale the flat sketch with the panel — on mobile the diagram spans the
+   full card width, and a fixed 130px drawing floats lost in the beige. */
+.size-chart__diagram svg {
+  width: clamp(130px, 34vw, 180px);
+  height: auto;
+}
+
 .size-chart__table-wrap {
   flex: 1;
   overflow-x: auto;

@@ -66,7 +66,19 @@ function InfiniteGrid({
     return () => observer.disconnect();
   }, [hasNextPage, isLoading, nodes.length]); // re-attach when page loads
 
-  const items = nodes.map((node, index) => children({node, index}));
+  // Pagination accumulates nodes across pages, and the collection's sort
+  // order isn't guaranteed stable between cursor fetches — a product can
+  // land on two pages, which React rejects as duplicate keys. Keep the
+  // first occurrence only.
+  const seen = new Set();
+  const uniqueNodes = nodes.filter((node) => {
+    const key = node?.id ?? node;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  const items = uniqueNodes.map((node, index) => children({node, index}));
 
   return (
     <>

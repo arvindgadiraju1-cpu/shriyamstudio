@@ -9,6 +9,15 @@ import {
   productMatchesCollection,
   getSubcategoryFilter,
 } from '~/lib/collectionConfig';
+import {cachedClientLoader} from '~/lib/clientCache';
+
+/**
+ * Re-visiting a collection within 2 minutes (e.g. browsing back from a
+ * product or hopping filter tabs) reuses the already-fetched data.
+ */
+export async function clientLoader(args) {
+  return cachedClientLoader(args);
+}
 
 export const meta = ({data}) => {
   return [

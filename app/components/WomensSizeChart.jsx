@@ -12,59 +12,60 @@ const ROWS = [
   {size: 'XXL', chest: 42, waist: 36, shoulder: 16.5, hip: 46},
 ];
 
-function KurtaSilhouette() {
+function WomensSilhouette() {
+  // Technical flat sketch — the symmetric spec-sheet style used on garment
+  // measurement guides. Every x-coordinate mirrors around the centre (x=80)
+  // so the drawing stays clean at small sizes. Arrows map 1:1 to the table
+  // columns: Shoulder, Chest, Waist, Hip.
   return (
     <svg
-      viewBox="0 0 160 260"
-      width="120"
-      height="200"
+      viewBox="30 19 100 214"
+      width="130"
+      height="278"
       aria-hidden="true"
       style={{display: 'block', margin: '0 auto'}}
     >
-      {/* Kurta body shape */}
-      <g fill="#E8DFD0" stroke="#C8A96B" strokeWidth="1.2">
-        {/* Neckline + shoulders */}
-        <path d="M60 30 Q80 22 100 30 L112 55 Q100 50 80 50 Q60 50 48 55 Z" />
-        {/* Sleeves */}
-        <path d="M48 55 Q30 65 24 90 L38 92 Q44 72 52 68 L48 55Z" />
-        <path d="M112 55 Q130 65 136 90 L122 92 Q116 72 108 68 L112 55Z" />
-        {/* Main body — kurta */}
-        <path d="M52 68 L46 200 Q60 208 80 208 Q100 208 114 200 L108 68 Q100 50 80 50 Q60 50 52 68Z" />
+      {/* Sleeves (drawn first so the body overlaps the join) */}
+      <g fill="#FBF9F6" stroke="#8B6B3E" strokeWidth="1.1" strokeLinejoin="round">
+        <path d="M54 42 C46 46 41 52 39 60 L33 100 Q33 104 37 104 L47 104 Q50 104 51 100 L57 68 C57 58 56 48 54 42 Z" />
+        <path d="M106 42 C114 46 119 52 121 60 L127 100 Q127 104 123 104 L113 104 Q110 104 109 100 L103 68 C103 58 104 48 106 42 Z" />
       </g>
 
-      {/* Chest measurement arrow */}
-      <line x1="54" y1="90" x2="106" y2="90" stroke="#143A34" strokeWidth="1.2" strokeDasharray="3,2" />
-      <polygon points="54,88 54,92 47,90" fill="#143A34" />
-      <polygon points="106,88 106,92 113,90" fill="#143A34" />
-      <text x="80" y="85" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Chest</text>
+      {/* Body — round neck, gentle A-line to the hem */}
+      <path
+        d="M66 38 L54 42 C56 52 57 62 58 70 C59 82 59.5 94 60 104 C56 140 49 182 45 222 Q80 230 115 222 C111 182 104 140 100 104 C100.5 94 101 82 102 70 C103 62 104 52 106 42 L94 38 Q80 54 66 38 Z"
+        fill="#FBF9F6"
+        stroke="#8B6B3E"
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
 
-      {/* Waist measurement arrow */}
-      <line x1="56" y1="130" x2="104" y2="130" stroke="#143A34" strokeWidth="1.2" strokeDasharray="3,2" />
-      <polygon points="56,128 56,132 49,130" fill="#143A34" />
-      <polygon points="104,128 104,132 111,130" fill="#143A34" />
-      <text x="80" y="125" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Waist</text>
+      {/* Centre-front seam */}
+      <path d="M80 56 L80 220" stroke="#C8A96B" strokeWidth="0.7" strokeDasharray="1,3" opacity="0.7" />
 
-      {/* Shoulder measurement arrow */}
-      <line x1="52" y1="57" x2="108" y2="57" stroke="#8B6B3E" strokeWidth="1" strokeDasharray="2,2" />
-      <polygon points="52,55 52,59 45,57" fill="#8B6B3E" />
-      <polygon points="108,55 108,59 115,57" fill="#8B6B3E" />
-      <text x="80" y="53" textAnchor="middle" fontSize="7.5" fill="#8B6B3E" fontFamily="Inter, sans-serif">Shoulder</text>
+      {/* Shoulder */}
+      <line x1="50" y1="42" x2="110" y2="42" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="50,40 50,44 44,42" fill="#143A34" />
+      <polygon points="110,40 110,44 116,42" fill="#143A34" />
+      <text x="80" y="30" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Shoulder</text>
 
-      {/* Length arrow on the side */}
-      <line x1="36" y1="50" x2="36" y2="205" stroke="#143A34" strokeWidth="1.2" strokeDasharray="3,2" />
-      <polygon points="34,50 38,50 36,43" fill="#143A34" />
-      <polygon points="34,205 38,205 36,212" fill="#143A34" />
-      <text
-        x="26"
-        y="130"
-        textAnchor="middle"
-        fontSize="8"
-        fill="#143A34"
-        fontFamily="Inter, sans-serif"
-        transform="rotate(-90, 26, 130)"
-      >
-        Length
-      </text>
+      {/* Chest */}
+      <line x1="60" y1="88" x2="100" y2="88" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="60,86 60,90 54,88" fill="#143A34" />
+      <polygon points="100,86 100,90 106,88" fill="#143A34" />
+      <text x="80" y="83" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Chest</text>
+
+      {/* Waist */}
+      <line x1="61" y1="106" x2="99" y2="106" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="61,104 61,108 55,106" fill="#143A34" />
+      <polygon points="99,104 99,108 105,106" fill="#143A34" />
+      <text x="80" y="101" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Waist</text>
+
+      {/* Hip */}
+      <line x1="55" y1="150" x2="105" y2="150" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="55,148 55,152 49,150" fill="#143A34" />
+      <polygon points="105,148 105,152 111,150" fill="#143A34" />
+      <text x="80" y="145" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Hip</text>
     </svg>
   );
 }
@@ -82,7 +83,7 @@ export function WomensSizeChart() {
       <div className="size-chart__body">
         {/* Diagram */}
         <div className="size-chart__diagram">
-          <KurtaSilhouette />
+          <WomensSilhouette />
         </div>
 
         {/* Table */}

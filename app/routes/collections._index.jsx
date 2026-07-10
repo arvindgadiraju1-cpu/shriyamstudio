@@ -1,6 +1,12 @@
 import {useLoaderData, Link} from 'react-router';
 import {Image} from '@shopify/hydrogen';
 import {buildCuratedCollectionSummaries} from '~/lib/collectionConfig';
+import {cachedClientLoader} from '~/lib/clientCache';
+
+/** Re-visiting within 2 minutes reuses the already-fetched data. */
+export async function clientLoader(args) {
+  return cachedClientLoader(args);
+}
 
 export const meta = () => {
   return [{title: 'Shriyam | Collections'}];

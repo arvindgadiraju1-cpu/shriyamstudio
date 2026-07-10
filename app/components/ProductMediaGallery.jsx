@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
 import {Image} from '@shopify/hydrogen';
+import {pickVideoSource} from '~/lib/video';
 
 /**
  * ProductMediaGallery — full image + video gallery for product detail pages.
@@ -106,16 +107,9 @@ function MediaMain({node}) {
   if (!node) return null;
 
   if (node.__typename === 'Video' || node.mediaContentType === 'VIDEO') {
-    const sources = node.sources ?? [];
-
-    // Prefer 480p MP4 → any MP4 → any non-HLS → first available
-    const mp4 =
-      sources.find((s) => s.mimeType === 'video/mp4' && s.url?.includes('480p')) ||
-      sources.find((s) => s.mimeType === 'video/mp4') ||
-      sources.find((s) => s.format === 'mp4') ||
-      sources.find((s) => s.mimeType !== 'application/x-mpegURL') ||
-      sources[0] ||
-      null;
+    // The gallery panel is the largest video surface on the site — use the
+    // top rendition (1080p when available). Lower rungs look soft here.
+    const mp4 = pickVideoSource(node.sources);
 
     if (!mp4) {
       // sources empty — fall back to showing previewImage as still

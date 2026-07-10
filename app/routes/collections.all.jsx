@@ -1,5 +1,11 @@
 import {useLoaderData} from 'react-router';
 import {ProductGrid} from '~/components/ProductGrid';
+import {cachedClientLoader} from '~/lib/clientCache';
+
+/** Re-visiting within 2 minutes reuses the already-fetched data. */
+export async function clientLoader(args) {
+  return cachedClientLoader(args);
+}
 
 /**
  * @type {Route.MetaFunction}

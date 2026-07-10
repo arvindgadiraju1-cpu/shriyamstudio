@@ -13,51 +13,69 @@ const ROWS = [
 ];
 
 function DressSilhouette() {
+  // Technical flat sketch, matching the women's chart style but with child
+  // proportions: shorter, wider, cap sleeves, empire waist with gathers.
+  // Mirrored around x=70. Arrows map 1:1 to the table columns: Length, Chest.
   return (
     <svg
-      viewBox="0 0 140 230"
-      width="100"
-      height="180"
+      viewBox="8 34 102 154"
+      width="110"
+      height="166"
       aria-hidden="true"
       style={{display: 'block', margin: '0 auto'}}
     >
-      {/* Dress body */}
-      <g fill="#E8DFD0" stroke="#C8A96B" strokeWidth="1.2">
-        {/* Bodice */}
-        <path d="M55 30 Q70 22 85 30 L94 55 Q82 50 70 50 Q58 50 46 55 Z" />
-        {/* Sleeves */}
-        <path d="M46 55 Q32 64 28 82 L40 84 Q44 68 50 64 L46 55Z" />
-        <path d="M94 55 Q108 64 112 82 L100 84 Q96 68 90 64 L94 55Z" />
-        {/* Skirt — flared */}
-        <path d="M50 64 Q58 50 70 50 Q82 50 90 64 L104 200 Q86 210 70 210 Q54 210 36 200 Z" />
+      {/* Cap sleeves (drawn first so the bodice overlaps the join) */}
+      <g fill="#FBF9F6" stroke="#8B6B3E" strokeWidth="1.1" strokeLinejoin="round">
+        <path d="M47 45 Q36 49 35 62 Q35 72 40 76 Q48 73 51 66 L51 50 Z" />
+        <path d="M93 45 Q104 49 105 62 Q105 72 100 76 Q92 73 89 66 L89 50 Z" />
       </g>
 
-      {/* Chest arrow */}
-      <line x1="52" y1="78" x2="88" y2="78" stroke="#143A34" strokeWidth="1.2" strokeDasharray="3,2" />
-      <polygon points="52,76 52,80 45,78" fill="#143A34" />
-      <polygon points="88,76 88,80 95,78" fill="#143A34" />
-      <text x="70" y="73" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Chest</text>
+      {/* Bodice + gathered skirt */}
+      <path
+        d="M60 40 L48 44 C49 54 50 62 51 70 L52 88 C46 110 39 144 36 176 Q70 186 104 176 C101 144 94 110 88 88 L89 70 C90 62 91 54 92 44 L80 40 Q70 50 60 40 Z"
+        fill="#FBF9F6"
+        stroke="#8B6B3E"
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
 
-      {/* Length arrow */}
-      <line x1="30" y1="50" x2="30" y2="205" stroke="#143A34" strokeWidth="1.2" strokeDasharray="3,2" />
-      <polygon points="28,50 32,50 30,43" fill="#143A34" />
-      <polygon points="28,205 32,205 30,212" fill="#143A34" />
+      {/* Empire waist seam + gathers below it */}
+      <path d="M52 88 Q70 93 88 88" fill="none" stroke="#8B6B3E" strokeWidth="0.9" />
+      <g stroke="#8B6B3E" strokeWidth="0.7" opacity="0.5">
+        <line x1="58" y1="92" x2="57" y2="100" />
+        <line x1="64" y1="93" x2="63.5" y2="101" />
+        <line x1="70" y1="93.5" x2="70" y2="102" />
+        <line x1="76" y1="93" x2="76.5" y2="101" />
+        <line x1="82" y1="92" x2="83" y2="100" />
+      </g>
+
+      {/* Centre-front seam (kept plain — buttons collided with the Chest label) */}
+      <path d="M70 50 L70 88" stroke="#C8A96B" strokeWidth="0.7" strokeDasharray="1,3" opacity="0.7" />
+
+      {/* Hem topstitch */}
+      <path d="M39 171 Q70 180 101 171" fill="none" stroke="#C8A96B" strokeWidth="0.8" strokeDasharray="2,2" opacity="0.7" />
+
+      {/* Chest */}
+      <line x1="53" y1="74" x2="87" y2="74" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="53,72 53,76 47,74" fill="#143A34" />
+      <polygon points="87,72 87,76 93,74" fill="#143A34" />
+      <text x="70" y="68" textAnchor="middle" fontSize="8" fill="#143A34" fontFamily="Inter, sans-serif">Chest</text>
+
+      {/* Length */}
+      <line x1="24" y1="44" x2="24" y2="179" stroke="#143A34" strokeWidth="1" strokeDasharray="3,2" />
+      <polygon points="22,44 26,44 24,38" fill="#143A34" />
+      <polygon points="22,179 26,179 24,185" fill="#143A34" />
       <text
-        x="20"
-        y="130"
+        x="15"
+        y="112"
         textAnchor="middle"
         fontSize="8"
         fill="#143A34"
         fontFamily="Inter, sans-serif"
-        transform="rotate(-90, 20, 130)"
+        transform="rotate(-90, 15, 112)"
       >
         Length
       </text>
-
-      {/* Gold dots at neckline — decorative */}
-      <circle cx="70" cy="32" r="3" fill="#C8A96B" opacity="0.7" />
-      <circle cx="63" cy="35" r="2" fill="#C8A96B" opacity="0.5" />
-      <circle cx="77" cy="35" r="2" fill="#C8A96B" opacity="0.5" />
     </svg>
   );
 }

@@ -13,6 +13,15 @@ import {ProductMediaGallery} from '~/components/ProductMediaGallery';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WomensSizeChart} from '~/components/WomensSizeChart';
 import {KidsSizeChart} from '~/components/KidsSizeChart';
+import {cachedClientLoader} from '~/lib/clientCache';
+
+/**
+ * Re-visiting a product within 2 minutes (e.g. browsing back from the
+ * collection) reuses the already-fetched data instead of refetching.
+ */
+export async function clientLoader(args) {
+  return cachedClientLoader(args);
+}
 
 /**
  * @type {Route.MetaFunction}
