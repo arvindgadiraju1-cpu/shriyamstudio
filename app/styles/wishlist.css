@@ -1,0 +1,129 @@
+/* ============================================================================
+ * 19 · WISHLIST — heart toggles, header link, saved-items page
+ * ========================================================================== */
+
+/* Base heart toggle (variants position it). */
+.wishlist-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: color var(--duration-fast) var(--ease-out-soft),
+    border-color var(--duration-fast) var(--ease-out-soft);
+}
+
+.wishlist-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* Saved = bronze, matching the site's "metal as jewelry" accent role. */
+.wishlist-toggle--saved {
+  color: var(--color-accent);
+}
+
+/* --- Card variant: top-right of the photo, mirroring quick-view's corner --- */
+.wishlist-toggle--card {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: rgba(250, 248, 245, 0.92);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+}
+
+.wishlist-toggle--card:hover {
+  border-color: var(--color-gold);
+  color: var(--color-accent);
+}
+
+/* Mouse devices: unsaved hearts appear on hover (like quick-view); saved
+   hearts stay visible — they're state, not just an affordance. Touch devices
+   keep every heart visible since there is no hover. */
+@media (hover: hover) {
+  .wishlist-toggle--card:not(.wishlist-toggle--saved) {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity var(--duration-base) var(--ease-out-soft),
+      transform var(--duration-base) var(--ease-out-soft),
+      color var(--duration-fast) var(--ease-out-soft),
+      border-color var(--duration-fast) var(--ease-out-soft);
+  }
+
+  .product-item-media:hover .wishlist-toggle--card,
+  .wishlist-toggle--card:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Product page variant: beside the title --- */
+.product-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wishlist-toggle--pdp {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin-top: 0.3rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+}
+
+.wishlist-toggle--pdp svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.wishlist-toggle--pdp:hover {
+  border-color: var(--color-gold);
+}
+
+/* --- Header link: desktop only; on phones the wishlist lives in the menu
+   (a third icon doesn't fit beside the centered wordmark). The .site-actions
+   prefix keeps this ahead of .icon-btn's display rule in the cascade. --- */
+.site-actions .wishlist-link {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .site-actions .wishlist-link {
+    display: inline-flex;
+  }
+}
+
+/* --- Wishlist page --- */
+.wishlist-page .wishlist-grid {
+  padding-bottom: var(--section-space);
+}
+
+.wishlist-status {
+  padding: 1.5rem 0 3rem;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+.wishlist-status--notice {
+  padding-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.wishlist-empty {
+  display: grid;
+  justify-items: center;
+  gap: 1.75rem;
+  padding: 2rem 0 var(--section-space);
+  text-align: center;
+  color: var(--color-ink-muted);
+}

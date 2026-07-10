@@ -68,6 +68,15 @@ export function CloseIcon(props) {
   );
 }
 
+/** Wishlist heart — `filled` marks the saved state. */
+export function HeartIcon({filled = false, ...props}) {
+  return (
+    <Svg {...props} fill={filled ? 'currentColor' : 'none'}>
+      <path d="M12 20.3 5.1 13.4a4.8 4.8 0 0 1 0-6.7 4.6 4.6 0 0 1 6.6 0l.3.3.3-.3a4.6 4.6 0 0 1 6.6 0 4.8 4.8 0 0 1 0 6.7L12 20.3Z" />
+    </Svg>
+  );
+}
+
 export function ArrowRightIcon(props) {
   return (
     <Svg {...props}>

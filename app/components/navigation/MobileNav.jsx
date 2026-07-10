@@ -93,6 +93,9 @@ export function MobileNav() {
 
       <div className="mobile-nav__footer">
         <div className="mobile-nav__meta">
+          <NavLink to="/wishlist" prefetch="intent" onClick={close}>
+            Wishlist
+          </NavLink>
           <NavLink to="/account" prefetch="intent" onClick={close}>
             Account
           </NavLink>

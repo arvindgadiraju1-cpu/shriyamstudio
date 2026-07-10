@@ -10,6 +10,7 @@
  *   product.css     — product detail page, size chart, media gallery
  *   footer.css      — footer
  *   misc.css        — search results, account, blog, pagination, infinite scroll
+ *   wishlist.css    — heart toggles, header wishlist link, wishlist page
  *
  * Design tokens live in theme.css (imported by root.jsx separately).
  * =============================================================================
@@ -22,3 +23,4 @@
 @import './product.css';
 @import './footer.css';
 @import './misc.css';
+@import './wishlist.css';

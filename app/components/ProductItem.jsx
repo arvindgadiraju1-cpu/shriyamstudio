@@ -1,6 +1,7 @@
 import {Link} from 'react-router';
 import {Image, Money} from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
+import {WishlistButton} from '~/components/WishlistButton';
 
 /**
  * @param {{
@@ -32,6 +33,7 @@ export function ProductItem({product, loading, onQuickView}) {
             sizes="(min-width: 64em) 33vw, (min-width: 45em) 50vw, 100vw"
           />
         )}
+        <WishlistButton product={product} className="wishlist-toggle--card" />
         {onQuickView ? (
           <button
             aria-label={`Quick view ${product.title}`}

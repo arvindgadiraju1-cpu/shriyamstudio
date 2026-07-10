@@ -4,7 +4,14 @@ import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
 import {useScrolled} from '~/hooks/useScrolled';
 import {navigation, announcement, brand} from '~/lib/storeConfig';
-import {SearchIcon, AccountIcon, BagIcon, MenuIcon} from '~/components/ui/Icon';
+import {
+  SearchIcon,
+  AccountIcon,
+  BagIcon,
+  MenuIcon,
+  HeartIcon,
+} from '~/components/ui/Icon';
+import {useWishlist} from '~/lib/wishlist';
 
 /**
  * SiteHeader — the fixed chrome: announcement bar + header. Transparent over the
@@ -139,6 +146,8 @@ function HeaderActions({isLoggedIn, cart}) {
         <SearchIcon />
       </button>
 
+      <WishlistLink />
+
       <NavLink
         to="/account"
         prefetch="intent"
@@ -154,6 +163,26 @@ function HeaderActions({isLoggedIn, cart}) {
 
       <CartToggle cart={cart} />
     </div>
+  );
+}
+
+/**
+ * Wishlist heart with a saved count. Desktop-only (like the account icon) —
+ * three icons don't fit beside the centered wordmark on phones, where the
+ * wishlist lives in the menu instead.
+ */
+function WishlistLink() {
+  const count = useWishlist().length;
+  return (
+    <NavLink
+      to="/wishlist"
+      prefetch="intent"
+      className="icon-btn wishlist-link"
+      aria-label={`Wishlist, ${count} saved`}
+    >
+      <HeartIcon />
+      {count > 0 ? <span className="cart-count">{count}</span> : null}
+    </NavLink>
   );
 }
 

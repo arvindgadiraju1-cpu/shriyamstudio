@@ -14,6 +14,7 @@ import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WomensSizeChart} from '~/components/WomensSizeChart';
 import {KidsSizeChart} from '~/components/KidsSizeChart';
 import {cachedClientLoader} from '~/lib/clientCache';
+import {WishlistButton} from '~/components/WishlistButton';
 
 /**
  * Re-visiting a product within 2 minutes (e.g. browsing back from the
@@ -125,7 +126,10 @@ export default function Product() {
         selectedImage={selectedVariant?.image}
       />
       <div className="product-main">
-        <h1>{title}</h1>
+        <div className="product-title-row">
+          <h1>{title}</h1>
+          <WishlistButton product={product} className="wishlist-toggle--pdp" />
+        </div>
         <ProductPrice
           price={selectedVariant?.price}
           compareAtPrice={selectedVariant?.compareAtPrice}
