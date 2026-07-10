@@ -40,6 +40,8 @@
 }
 
 .site-header__inner {
+  /* Anchor for the absolutely-centered wordmark on mobile. */
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -88,10 +90,26 @@
   text-indent: 0.2em;
   line-height: 1;
   text-transform: uppercase;
-  /* The wordmark carries the brand's own teal, not generic chrome ink —
-     it's the one place the logo's actual color belongs. */
-  color: var(--color-surface-dark);
+  /* TEMP deploy marker (revert to var(--color-surface-dark)): gold instead of
+     teal so this build is visually distinguishable on-device. */
+  color: var(--color-gold);
   white-space: nowrap;
+}
+
+/* Mobile: the grid can't center the wordmark — the right column (two icons)
+   is wider than the left (hamburger), so when the 1fr tracks hit their
+   min-content floors the middle column drifts left. Absolute centering pins
+   it to the true viewport middle regardless of what flanks it. */
+@media (max-width: 63.99em) {
+  .site-brand {
+    position: absolute;
+    /* auto placement → containing block is the header inner's padding box,
+       not the collapsed middle grid column (a Safari abspos-in-grid corner). */
+    grid-column: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* Over a transparent hero the header still needs to read against imagery,
@@ -256,13 +274,17 @@
   color: rgba(250, 248, 245, 0.78);
 }
 
-/* Hide the desktop account icon on small screens (account lives in the menu). */
-.account-link {
+/* Hide the desktop account icon on small screens (account lives in the menu).
+   Needs the .site-actions prefix: the element also carries .icon-btn, whose
+   display:inline-flex is declared LATER in this file — at equal specificity
+   the later rule won and the icon showed on phones (crowding the header and
+   pushing the wordmark off-center). */
+.site-actions .account-link {
   display: none;
 }
 
 @media (min-width: 64em) {
-  .account-link {
+  .site-actions .account-link {
     display: inline-flex;
   }
 }
