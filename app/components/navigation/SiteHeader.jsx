@@ -167,12 +167,13 @@ function HeaderActions({isLoggedIn, cart}) {
 }
 
 /**
- * Wishlist heart with a saved count. Desktop-only (like the account icon) —
- * three icons don't fit beside the centered wordmark on phones, where the
- * wishlist lives in the menu instead.
+ * Wishlist heart with a saved count, between search and cart. Renders nothing
+ * while the wishlist is empty — the heart earns its header slot by holding
+ * something. (Empty-state entry points: card hearts and the mobile menu.)
  */
 function WishlistLink() {
   const count = useWishlist().length;
+  if (count === 0) return null;
   return (
     <NavLink
       to="/wishlist"
@@ -181,7 +182,7 @@ function WishlistLink() {
       aria-label={`Wishlist, ${count} saved`}
     >
       <HeartIcon />
-      {count > 0 ? <span className="cart-count">{count}</span> : null}
+      <span className="cart-count">{count}</span>
     </NavLink>
   );
 }

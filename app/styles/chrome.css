@@ -118,6 +118,14 @@
   color: var(--color-on-dark);
 }
 
+/* The narrowest phones can't fit the full-size wordmark plus three action
+   icons — step it down just enough to keep clearance. */
+@media (max-width: 25em) {
+  .site-brand {
+    font-size: 1.2rem;
+  }
+}
+
 /* Left zone holds the mobile menu toggle + the desktop nav. */
 .site-header__left {
   grid-column: 1;
@@ -296,6 +304,18 @@
   display: flex;
   align-items: center;
   gap: clamp(0.5rem, 1.5vw, 1.25rem);
+}
+
+/* Phones: up to three icons (search, wishlist, cart) must clear the centered
+   wordmark. Buttons keep their 44px-tall tap area but narrow to 36px with no
+   flex gap — each glyph's ~7px internal inset still reads as spacing. */
+@media (max-width: 63.99em) {
+  .site-actions {
+    gap: 0;
+  }
+  .site-actions .icon-btn {
+    width: 36px;
+  }
 }
 
 .icon-btn {

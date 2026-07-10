@@ -89,19 +89,6 @@
   border-color: var(--color-gold);
 }
 
-/* --- Header link: desktop only; on phones the wishlist lives in the menu
-   (a third icon doesn't fit beside the centered wordmark). The .site-actions
-   prefix keeps this ahead of .icon-btn's display rule in the cascade. --- */
-.site-actions .wishlist-link {
-  display: none;
-}
-
-@media (min-width: 64em) {
-  .site-actions .wishlist-link {
-    display: inline-flex;
-  }
-}
-
 /* --- Wishlist page --- */
 .wishlist-page .wishlist-grid {
   padding-bottom: var(--section-space);
