@@ -90,9 +90,9 @@
   text-indent: 0.2em;
   line-height: 1;
   text-transform: uppercase;
-  /* TEMP deploy marker (revert to var(--color-surface-dark)): gold instead of
-     teal so this build is visually distinguishable on-device. */
-  color: var(--color-gold);
+  /* The wordmark carries the brand's own teal, not generic chrome ink —
+     it's the one place the logo's actual color belongs. */
+  color: var(--color-surface-dark);
   white-space: nowrap;
 }
 
@@ -116,14 +116,6 @@
    so the wordmark falls back to on-dark cream like the rest of the chrome. */
 .chrome[data-transparent='true'][data-scrolled='false'] .site-brand {
   color: var(--color-on-dark);
-}
-
-/* The narrowest phones can't fit the full-size wordmark plus three action
-   icons — step it down just enough to keep clearance. */
-@media (max-width: 25em) {
-  .site-brand {
-    font-size: 1.2rem;
-  }
 }
 
 /* Left zone holds the mobile menu toggle + the desktop nav. */
@@ -306,15 +298,33 @@
   gap: clamp(0.5rem, 1.5vw, 1.25rem);
 }
 
-/* Phones: up to three icons (search, wishlist, cart) must clear the centered
-   wordmark. Buttons keep their 44px-tall tap area but narrow to 36px with no
-   flex gap — each glyph's ~7px internal inset still reads as spacing. */
+/* Phones: two icons flank each side of the centered wordmark (menu + search
+   left, wishlist + cart right) — symmetric gaps. Buttons keep their 44px-tall
+   tap area but narrow to 36px with no flex gap so both pairs clear the
+   wordmark; each glyph's ~7px internal inset still reads as spacing. */
 @media (max-width: 63.99em) {
+  .site-header__left,
   .site-actions {
     gap: 0;
   }
+  .site-header__left .icon-btn,
   .site-actions .icon-btn {
     width: 36px;
+  }
+}
+
+/* Search renders in both header zones; each phone/desktop shows exactly one.
+   Zone-prefixed selectors so these outrank .icon-btn's later display rule. */
+.site-header__left .search-toggle--left {
+  display: none;
+}
+
+@media (max-width: 63.99em) {
+  .site-header__left .search-toggle--left {
+    display: inline-flex;
+  }
+  .site-actions .search-toggle--right {
+    display: none;
   }
 }
 

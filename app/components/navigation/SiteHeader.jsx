@@ -43,6 +43,10 @@ export function SiteHeader({header, cart, isLoggedIn}) {
         <div className="site-header__inner">
           <div className="site-header__left">
             <MenuToggle />
+            {/* On phones search lives here so both sides of the centered
+                wordmark carry two icons — symmetric gaps. Hidden on desktop,
+                where search sits with the other actions on the right. */}
+            <SearchToggle className="search-toggle--left" />
             <DesktopNav />
           </div>
 
@@ -135,16 +139,9 @@ function MenuToggle() {
  * }} props
  */
 function HeaderActions({isLoggedIn, cart}) {
-  const {open} = useAside();
   return (
     <div className="site-actions">
-      <button
-        className="icon-btn"
-        aria-label="Search"
-        onClick={() => open('search')}
-      >
-        <SearchIcon />
-      </button>
+      <SearchToggle className="search-toggle--right" />
 
       <WishlistLink />
 
@@ -166,23 +163,35 @@ function HeaderActions({isLoggedIn, cart}) {
   );
 }
 
+/** @param {{className?: string}} props */
+function SearchToggle({className = ''}) {
+  const {open} = useAside();
+  return (
+    <button
+      className={`icon-btn ${className}`.trim()}
+      aria-label="Search"
+      onClick={() => open('search')}
+    >
+      <SearchIcon />
+    </button>
+  );
+}
+
 /**
- * Wishlist heart with a saved count, between search and cart. Renders nothing
- * while the wishlist is empty — the heart earns its header slot by holding
- * something. (Empty-state entry points: card hearts and the mobile menu.)
+ * Wishlist heart, always present between search and cart; the count pill
+ * only appears once something is saved.
  */
 function WishlistLink() {
   const count = useWishlist().length;
-  if (count === 0) return null;
   return (
     <NavLink
       to="/wishlist"
       prefetch="intent"
       className="icon-btn wishlist-link"
-      aria-label={`Wishlist, ${count} saved`}
+      aria-label={count > 0 ? `Wishlist, ${count} saved` : 'Wishlist'}
     >
       <HeartIcon />
-      <span className="cart-count">{count}</span>
+      {count > 0 ? <span className="cart-count">{count}</span> : null}
     </NavLink>
   );
 }
