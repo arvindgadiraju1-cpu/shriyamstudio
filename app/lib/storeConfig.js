@@ -160,6 +160,19 @@ export const footerColumns = [
   },
 ];
 
+/**
+ * Search starting points: shown in the search overlay before anything is
+ * typed, and on the /search page when a query comes up empty.
+ */
+export const searchSuggestions = {
+  popularTerms: ['Kurta set', 'Chikankari', 'Frock', 'Festive'],
+  browseLinks: [
+    {label: "All Women's", href: '/collections/womens'},
+    {label: 'All Kids', href: '/collections/kids'},
+    {label: 'Everything', href: '/collections/all'},
+  ],
+};
+
 export const storeConfig = {
   brand,
   announcement,
@@ -167,6 +180,7 @@ export const storeConfig = {
   featuredCollections,
   editorial,
   footerColumns,
+  searchSuggestions,
 };
 
 export default storeConfig;

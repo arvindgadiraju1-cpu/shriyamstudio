@@ -43,10 +43,6 @@ export function SiteHeader({header, cart, isLoggedIn}) {
         <div className="site-header__inner">
           <div className="site-header__left">
             <MenuToggle />
-            {/* On phones search lives here so both sides of the centered
-                wordmark carry two icons — symmetric gaps. Hidden on desktop,
-                where search sits with the other actions on the right. */}
-            <SearchToggle className="search-toggle--left" />
             <DesktopNav />
           </div>
 
@@ -138,10 +134,13 @@ function MenuToggle() {
  *   cart: Promise<import('storefrontapi.generated').CartApiQueryFragment | null>,
  * }} props
  */
+// No checkout yet — flip when it ships to restore the header cart button.
+const SHOW_CART = false;
+
 function HeaderActions({isLoggedIn, cart}) {
   return (
     <div className="site-actions">
-      <SearchToggle className="search-toggle--right" />
+      <SearchToggle />
 
       <WishlistLink />
 
@@ -158,17 +157,16 @@ function HeaderActions({isLoggedIn, cart}) {
         </Suspense>
       </NavLink>
 
-      <CartToggle cart={cart} />
+      {SHOW_CART ? <CartToggle cart={cart} /> : null}
     </div>
   );
 }
 
-/** @param {{className?: string}} props */
-function SearchToggle({className = ''}) {
+function SearchToggle() {
   const {open} = useAside();
   return (
     <button
-      className={`icon-btn ${className}`.trim()}
+      className="icon-btn"
       aria-label="Search"
       onClick={() => open('search')}
     >

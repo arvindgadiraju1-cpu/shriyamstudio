@@ -1,8 +1,10 @@
-import {useLoaderData} from 'react-router';
+import {Link, useLoaderData} from 'react-router';
 import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
 import {SearchForm} from '~/components/SearchForm';
 import {SearchResults} from '~/components/SearchResults';
+import {SearchIcon} from '~/components/ui/Icon';
 import {getEmptyPredictiveSearchResult} from '~/lib/search';
+import {searchSuggestions} from '~/lib/storeConfig';
 
 /**
  * @type {Route.MetaFunction}
@@ -36,28 +38,48 @@ export default function SearchPage() {
   /** @type {LoaderReturnData} */
   const {type, term, result, error} = useLoaderData();
   if (type === 'predictive') return null;
+  const total = result?.total ?? 0;
 
   return (
-    <div className="search">
-      <h1>Search</h1>
-      <SearchForm>
+    <div className="collection search-page">
+      <section className="collection-hero compact">
+        <p className="eyebrow">Search</p>
+        <h1>{term ? `“${term}”` : 'Search'}</h1>
+        <p>
+          {!term
+            ? 'Find sarees, suit sets, kurta sets, and kids wear.'
+            : total > 0
+              ? `${total} ${total === 1 ? 'match' : 'matches'} across the studio.`
+              : 'Nothing matched — try a different word, or start from a collection below.'}
+        </p>
+      </section>
+
+      <SearchForm className="search-page__form">
         {({inputRef}) => (
-          <>
+          <div className="search-field">
+            <SearchIcon />
             <input
               defaultValue={term}
               name="q"
-              placeholder="Search…"
+              placeholder="Sarees, kurta sets, wedding…"
               ref={inputRef}
               type="search"
             />
-            &nbsp;
             <button type="submit">Search</button>
-          </>
+          </div>
         )}
       </SearchForm>
-      {error && <p style={{color: 'red'}}>{error}</p>}
-      {!term || !result?.total ? (
-        <SearchResults.Empty />
+
+      {error && (
+        <p className="search-page__error" role="alert">
+          Search hit a snag — please try again. ({error})
+        </p>
+      )}
+
+      {!term ? (
+        <SearchStartingPoints />
+      ) : total === 0 ? (
+        <SearchEmpty term={term} />
       ) : (
         <SearchResults result={result} term={term}>
           {({articles, pages, products, term}) => (
@@ -70,6 +92,59 @@ export default function SearchPage() {
         </SearchResults>
       )}
       <Analytics.SearchView data={{searchTerm: term, searchResults: result}} />
+    </div>
+  );
+}
+
+function SuggestionChips({includePopular = false}) {
+  return (
+    <>
+      {includePopular && (
+        <>
+          <p className="search-suggest__label">Popular right now</p>
+          <div className="search-suggest__chips">
+            {searchSuggestions.popularTerms.map((suggestion) => (
+              <Link
+                key={suggestion}
+                className="search-chip"
+                to={`/search?q=${encodeURIComponent(suggestion)}`}
+              >
+                {suggestion}
+              </Link>
+            ))}
+          </div>
+        </>
+      )}
+      <p className="search-suggest__label">Browse instead</p>
+      <div className="search-suggest__chips">
+        {searchSuggestions.browseLinks.map((link) => (
+          <Link key={link.href} className="search-chip" to={link.href}>
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/** Landing on /search with no query — starting points, not a blank page. */
+function SearchStartingPoints() {
+  return (
+    <div className="search-empty">
+      <SuggestionChips includePopular />
+    </div>
+  );
+}
+
+/** @param {{term: string}} props */
+function SearchEmpty({term}) {
+  return (
+    <div className="search-empty">
+      <p className="search-empty__lead">
+        We couldn&rsquo;t find anything for <strong>“{term}”</strong>. A simpler
+        word often works better — “kurta” instead of “kurta with dupatta”.
+      </p>
+      <SuggestionChips includePopular />
     </div>
   );
 }
@@ -87,6 +162,19 @@ const SEARCH_PRODUCT_FRAGMENT = `#graphql
     title
     trackingParameters
     vendor
+    featuredImage {
+      id
+      altText
+      url
+      width
+      height
+    }
+    priceRange {
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
     selectedOrFirstAvailableVariant(
       selectedOptions: []
       ignoreUnknownOptions: true

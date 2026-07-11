@@ -42,6 +42,103 @@
   background: var(--color-surface-soft);
 }
 
+/* Suggestion chips — starting points in the overlay and on /search. */
+.search-suggest {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: start;
+}
+
+.search-suggest__label {
+  margin: 0.5rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+.search-suggest__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.search-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.15rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  transition: color var(--duration-fast) var(--ease-out-soft),
+    border-color var(--duration-fast) var(--ease-out-soft);
+}
+
+.search-chip:hover {
+  border-color: var(--color-gold);
+  color: var(--color-accent);
+}
+
+/* /search page — hero + centered field, results reuse the product grid. */
+.search-page__form {
+  max-width: 46rem;
+  margin: 0 auto clamp(2.5rem, 6vw, 4rem);
+}
+
+.search-page__error {
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+.search-empty {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding-bottom: var(--section-space);
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+.search-empty .search-suggest__chips {
+  justify-content: center;
+}
+
+.search-empty__lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.search-page .search-result {
+  margin-bottom: var(--section-space);
+}
+
+.search-load-more {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid var(--color-line-strong);
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  transition: border-color var(--duration-fast) var(--ease-out-soft),
+    color var(--duration-fast) var(--ease-out-soft);
+}
+
+.search-load-more:hover {
+  border-color: var(--color-gold);
+  color: var(--color-accent);
+}
+
 /* Generic content pages (policies, pages, blog, account). */
 .policies,
 .policy,

@@ -7,6 +7,10 @@ import {
 } from '~/components/SearchFormPredictive';
 import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
 import {CloseIcon, SearchIcon} from '~/components/ui/Icon';
+import {searchSuggestions} from '~/lib/storeConfig';
+
+const {popularTerms: POPULAR_TERMS, browseLinks: BROWSE_LINKS} =
+  searchSuggestions;
 
 /**
  * SearchOverlay — an elegant top-sheet search (replaces the stock right-aside
@@ -66,14 +70,67 @@ export function SearchOverlay() {
             {({items, total, term, state, closeSearch}) => {
               const {articles, collections, pages, products, queries} = items;
 
-              if (state === 'loading' && term.current) {
+              // Nothing typed yet — offer starting points instead of a void.
+              if (!term.current) {
+                return (
+                  <div className="search-overlay__results">
+                    <div className="search-suggest">
+                      <p className="search-suggest__label">Popular right now</p>
+                      <div className="search-suggest__chips">
+                        {POPULAR_TERMS.map((suggestion) => (
+                          <Link
+                            key={suggestion}
+                            className="search-chip"
+                            onClick={closeSearch}
+                            to={`${SEARCH_ENDPOINT}?q=${encodeURIComponent(suggestion)}`}
+                          >
+                            {suggestion}
+                          </Link>
+                        ))}
+                      </div>
+                      <p className="search-suggest__label">Or browse</p>
+                      <div className="search-suggest__chips">
+                        {BROWSE_LINKS.map((link) => (
+                          <Link
+                            key={link.href}
+                            className="search-chip"
+                            onClick={closeSearch}
+                            to={link.href}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (state === 'loading') {
                 return <p className="search-overlay__status">Searching…</p>;
               }
 
               if (!total) {
                 return (
                   <div className="search-overlay__results">
-                    <SearchResultsPredictive.Empty term={term} />
+                    <div className="search-suggest">
+                      <p className="search-overlay__status">
+                        Nothing matches “{term.current}” — try a different word,
+                        or start from a collection.
+                      </p>
+                      <div className="search-suggest__chips">
+                        {BROWSE_LINKS.map((link) => (
+                          <Link
+                            key={link.href}
+                            className="search-chip"
+                            onClick={closeSearch}
+                            to={link.href}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 );
               }
@@ -104,15 +161,13 @@ export function SearchOverlay() {
                     closeSearch={closeSearch}
                     term={term}
                   />
-                  {term.current && total ? (
-                    <Link
-                      className="link-underline"
-                      onClick={closeSearch}
-                      to={`${SEARCH_ENDPOINT}?q=${term.current}`}
-                    >
-                      View all results for “{term.current}” →
-                    </Link>
-                  ) : null}
+                  <Link
+                    className="link-underline"
+                    onClick={closeSearch}
+                    to={`${SEARCH_ENDPOINT}?q=${term.current}`}
+                  >
+                    View all results for “{term.current}” →
+                  </Link>
                 </div>
               );
             }}
